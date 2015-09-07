@@ -1,0 +1,189 @@
+ 
+<p></p><p></p>
+<div ng-controller="gestion_menu_ipes">
+
+
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider"><font color="red"><center>Etablissements</center></font></li> 
+    </ul>
+
+    <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
+        <div data-role="collapsible" ng-repeat="data in data_etablissement" jqm-collapsible-repeat>
+
+
+            <h3 ng-click="go_id_etab(data.id_etablissement)">{{data.labelle_etalissement}}</h3>
+            <p>
+            <center> <img src='css/images/{{data.logo_etablissement}}.gif' class="ui-li-icon"> 
+
+                    <label for="textinput-f"><strong>{{data.labelle_etalissement}}</strong></label>
+            </center>
+                <!-- champs presentation d'un etablissement-->
+
+            <p></p>
+
+            <div class="ui-body ui-body-a ui-corner-all">
+
+                <p>{{data.presentation}} </p>
+
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="{{data.site_web}}" target="_blank">Visiter le site web</a></li>
+
+                </ul>
+
+
+            </div>
+
+
+
+            <!-- fin champs presentation d'un etablissement-->
+
+            <!-- Liste des diplomes -->
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider"><font color="red"><center>Diplôme préparé</center></font></li>
+            </ul>
+
+            <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
+                <div data-role="collapsible" ng-repeat="data in data_diplome" jqm-collapsible-repeat>
+
+                    <h3 ng-click="go_id_diplome(data.id_diplome)">{{data.labelle_diplome}}</h3>
+                    <p>
+                    <centre>  <label for="textinput-f">{{data.labelle_diplome}}</label> </centre>
+
+
+                        <!-- fin liste de dossier de condidature-->
+
+                    <ul data-role="listview" data-inset="true">
+                        <li data-role="list-divider"><font color="red"><center>Dossier de candidature</center></font></li>
+                    </ul>
+
+                    <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
+                        <div data-role="collapsible">
+
+                            <h3  ng-click="go_id_diplome_dossier(data.id_diplome)"><center>Dossier de candidature</center></h3>
+                            <p>
+                                <label for="textinput-f" ng-repeat="data in data_dossier_candidature">{{data.doc_candidature}}</label>
+
+                            </p>
+                        </div>
+                    </div> 
+                    <!-- fin liste de dossier de condidature-->
+                    
+                    <!-- fin liste des diplomes -->
+
+                    <!-- Liste des filieres -->
+
+                    <ul data-role="listview" data-inset="true">
+                        <li data-role="list-divider"><font color="red"><center>Filières</center></font></li>
+                    </ul>
+
+                    <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
+                        <div data-role="collapsible" ng-repeat="data in data_filiere" jqm-collapsible-repeat>
+
+
+
+                            <h3 ng-click="go_id_filiere(data.id_filiere)">{{data.labelle_filiere}}</h3>
+                            <p>
+                                <label for="textinput-f"><b>{{data.labelle_filiere}}</b></label>
+
+ 
+                                
+                            <div class="ui-body ui-body-a ui-corner-all">
+                                <b>Pré-requis :  </b>{{data.pre_requis}}
+
+                            </div> 
+
+                            <div class="ui-body ui-body-a ui-corner-all">
+                                <b>Durée : </b>{{data.duree}}
+
+                            </div>
+
+
+
+                            <div class="ui-body ui-body-a ui-corner-all">
+                                <b>Cours du jour : </b>{{data.cour_jour}}</br>
+                                <b>Date rentrée scolaire :  </b>{{data.date_rentree_jour}}</br>
+                                <b>Frais d'étude par année :</b></br>
+                                Inscription : {{data.inscription_cour_jour}} FCFA  </br>
+                                Pension :  {{data.pension_cour_jour}}   FCFA
+
+                            </div>
+
+                            <div class="ui-body ui-body-a ui-corner-all">
+                                <b>Cours du soir : </b>{{data.cour_soir}}</br>
+                                 <b>Date rentrée scolaire :  </b>{{data.date_rentree_soir}}</br>
+                                <b>Frais d'étude par année :</b></br>
+                                Inscription : {{data.inscription_cour_soir}} FCFA  </br>
+                                Pension :   {{data.pension_cour_soir}}  FCFA
+
+                            </div>
+
+                            <div class="ui-body ui-body-a ui-corner-all">
+                                <b>Tutelle ou partenaire académique : </b>{{data.tutelle}}
+
+
+                            </div>
+
+
+
+
+                            <!-- fin Liste des filieres -->
+                            <!-- Liste des specialites -->
+
+                            <ul data-role="listview" data-inset="true">
+                                <li data-role="list-divider"><font color="red"><center>Spécialités</center></font></li>
+                            </ul>
+
+                            <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
+                                <div data-role="collapsible" ng-repeat="data in data_specialite" jqm-collapsible-repeat>
+
+                                    <h3 ng-click="go_id_specialite(data.id_specialite)">{{data.labelle_specialite}}</h3>
+                                    <p>
+                                        <label for="textinput-f">{{data.labelle_specialite}}</label>
+
+                                        <!-- fin Liste des specialites -->
+
+                                        <!-- Liste des options -->
+
+                                    <ul data-role="listview" data-inset="true">
+                                        <li data-role="list-divider"><font color="red"><center>Options</center></font></li>
+                                    </ul>
+
+                                    <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
+                                        <div data-role="collapsible" ng-repeat="data in data_option" jqm-collapsible-repeat>
+
+                                            <h3>{{data.labelle_option}}</h3>
+                                            <p>
+                                                <label for="textinput-f">{{data.labelle_option}}</label>
+
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+            </div>    
+
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+

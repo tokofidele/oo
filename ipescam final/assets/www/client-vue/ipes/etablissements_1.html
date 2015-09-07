@@ -1,0 +1,82 @@
+ 
+
+<div ng-controller="gestion_menu_ipes">
+
+
+    <!-- liste des etablissements  -->
+    <ul data-role="listview" data-inset="true">
+
+        <li data-role="list-divider"><font color="red">Liste des Etablissements</font></li>
+        <!-- <li ng-repeat="data in data_etablissement" li-jq-mobile ng-click="go_id_etab(data.id_etablissement)"><a href="#">{{data.labelle_etalissement}}</a> </li> -->
+
+        
+
+            <fieldset data-role="collapsible" ng-repeat="data in data_etablissement" jqm-collapsible-repeat>
+                <h1 ng-click="go_id_etab(data.id_etablissement)">{{data.labelle_etalissement}}</h1><img src='css/images/{{data.logo_etablissement}}' class="ui-li-icon">
+                <label for="textinput-f">{{data.labelle_etalissement}}</label>
+
+                <!-- liste des diplomes  -->
+                <div data-role="controlgroup">
+
+                    <ul data-role="listview" data-inset="true">
+
+                        <li data-role="list-divider"><font color="red">Liste des Diplomes</font></li>
+
+                        <fieldset data-role="collapsible" ng-repeat="data in data_diplome" jqm-collapsible-repeat>
+                            <h1 ng-click="go_id_diplome(data.id_diplome)">{{data.labelle_diplome}}</h1>
+                             <label for="textinput-f">{{data.labelle_diplome}}</label>
+                            <!-- liste des filieres  -->
+                            <div data-role="controlgroup">
+
+                                <ul data-role="listview" data-inset="true">
+
+                                    <li data-role="list-divider"><font color="red">Liste des Filières</font></li>
+
+                                    <fieldset data-role="collapsible" ng-repeat="data in data_filiere" jqm-collapsible-repeat >
+                                        <h1 ng-click="go_id_filiere(data.id_filiere)">{{data.labelle_filiere}}</h1>
+                                       <label for="textinput-f">{{data.labelle_filiere}}</label>
+
+                                        <!-- liste des specialites  -->
+                                        <div data-role="controlgroup">
+                                            <ul data-role="listview" data-inset="true">
+
+                                                <li data-role="list-divider"><font color="red">Liste des Spécialités</font></li>
+
+                                                <fieldset data-role="collapsible" ng-repeat="data in data_specialite" jqm-collapsible-repeat>
+                                                    <h1 ng-click="go_id_specialite(data.id_specialite)">{{data.labelle_specialite}}</h1>
+                                       <label for="textinput-f">{{data.labelle_specialite}}</label>
+
+                                                    <!-- liste des Options  -->                      
+                                                    <div data-role="controlgroup">
+
+                                                        <ul data-role="listview" data-inset="true">
+
+                                                            <li data-role="list-divider"><font color="red">Liste des Options</font></li>
+
+                                                            <fieldset data-role="collapsible" ng-repeat="data in data_option" jqm-collapsible-repeat>
+                                                                <h1>{{data.labelle_option}}</h1>
+                                                                    <label for="textinput-f">{{data.labelle_option}}</label>
+                                                            </fieldset>
+                                                        </ul>
+
+                                                    </div>
+                                                </fieldset>
+                                            </ul>
+                                        </div>
+                                    </fieldset>
+                                </ul>
+                            </div>
+                        </fieldset>
+                    </ul>
+
+
+
+                </div>
+            </fieldset>
+         
+    </ul>
+</div>
+
+ 
+
+

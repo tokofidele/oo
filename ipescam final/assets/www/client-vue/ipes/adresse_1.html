@@ -1,0 +1,60 @@
+ 
+
+<div ng-controller="gestion_menu_ipes">
+
+
+    <!-- liste des etablissements  -->
+    <ul data-role="listview" data-inset="true">
+
+        <li data-role="list-divider"><font color="red">Adresse</font></li>
+        <!-- <li ng-repeat="data in data_etablissement" li-jq-mobile ng-click="go_id_etab(data.id_etablissement)"><a href="#">{{data.labelle_etalissement}}</a> </li> -->
+ 
+
+            <fieldset data-role="collapsible" ng-repeat="data in data_adresse" jqm-collapsible-repeat>
+                
+                <h1>site web </h1>
+                <label for="textinput-f" >{{data.site_web_ipes}}</label>
+                
+            </fieldset>
+            
+            <fieldset data-role="collapsible" ng-repeat="data in data_adresse" jqm-collapsible-repeat>
+                
+                <h1>Téléphone</h1>
+                <label for="textinput-f" >{{data.telephone_ipes}}</label>
+                
+            </fieldset>
+            
+              <fieldset data-role="collapsible" ng-repeat="data in data_adresse" jqm-collapsible-repeat>
+                
+                <h1>Boite postale</h1>
+                <label for="textinput-f" >{{data.boite_postale_ipes}}</label>
+                
+            </fieldset>
+            
+            <fieldset data-role="collapsible" ng-repeat="data in data_adresse" jqm-collapsible-repeat>
+                
+                <h1>Fax</h1>
+                <label for="textinput-f" >{{data.fax_ipes}}</label>
+                
+            </fieldset>
+            
+            <fieldset data-role="collapsible" ng-repeat="data in data_adresse" jqm-collapsible-repeat>
+                
+                <h1>Adresse electronique</h1>
+                <label for="textinput-f" >{{data.mail}}</label>
+                
+            </fieldset>
+            
+            <fieldset data-role="collapsible" ng-repeat="data in data_adresse" jqm-collapsible-repeat>
+                
+                <h1>ALocalisation</h1>
+                <label for="textinput-f" >{{data.localisation_ipes}}</label>
+                
+            </fieldset>
+     
+    </ul>
+</div>
+
+ 
+
+
