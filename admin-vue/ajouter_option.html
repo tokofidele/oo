@@ -1,0 +1,68 @@
+<div ng-controller="operation_etab">    
+    <div ng-controller="operation_diplome">  <!--  charge le nom des ipes et sa selection charge lenom des etablissements-->
+        <div ng-controller="operation_filiere">   <!--  charge le nom des diplome en fonction des etablissement choisie-->
+            <div ng-controller="operation_specialite">   <!--  charge le nom des filiere en fonction des diplome choisie-->       
+                <div ng-controller="operation_option">   <!--  charge le nom des specialite en fonction des filiere choisie--> 
+
+
+                    <form>
+                        <div style="padding:50px 10px;">
+
+                            <!--charge la liste des nom des ipes --> 
+                            <label for="text-1">  Choisir IPES</label>
+                            <select  ng-options="data as data.nom_ipes for data in data_ipes_name" ng-model="ipes_diplome" x-ng-change="update1(ipes_diplome)" >
+
+                            </select>
+
+
+                            <label for="text-1">  Choisir etablissement</label>
+                            <select  ng-options="data1 as data1.labelle_etalissement for data1 in data_etab_ipes" ng-model="ipes_etab" x-ng-change="update3(ipes_etab)" >
+
+                            </select>
+
+
+                            <label for="text-1">  Choisir diplome</label>
+                            <select  ng-options="data2 as data2.labelle_diplome for data2 in data_diplome_etab" ng-model="diplome_etab" x-ng-change="update5(diplome_etab)" >
+
+                            </select>
+
+                            <label for="text-1">  Choisir filière</label>
+                            <select  ng-options="data3 as data3.labelle_filiere for data3 in data_filiere_diplome" ng-model="filiere_diplome" x-ng-change="update7(filiere_diplome)" >
+
+                            </select>
+
+                            <label for="text-1">  Choisir specialite</label>
+                            <select  ng-options="data4 as data4.labelle_specialite for data4 in data_specialite_filiere" ng-model="specialite_filiere" x-ng-change="update8(specialite_filiere)" >
+
+                            </select>
+
+
+                            <label for="text-1">  Libelle option :</label>
+                            <input name="user" ng-model="label_option" value="" placeholder="labelle" data-theme="a" type="text">
+
+                            <label for="text-1">  Sigle option</label>
+                            <input name="nom" ng-model="sigle_option" value="" placeholder="sigle " data-theme="a" type="text">
+
+
+                            <label for="text-1">  Choisir etat</label>
+                            <div data-role="fieldcontain">										 
+                                <select  ng-model="etat_option" data-mini="true">
+                                    <option>actif</option>
+                                    <option>inactif</option>
+
+                                </select>
+                            </div>
+
+
+                            <input value="Enregistrer" data-icon="check" ng-click="save_option()" data-iconpos="right" data-mini="true" data-theme="e" type="button">											
+                            <center><div> {{result_add_option}}</div> </center>
+
+                        </div>	
+
+                    </form>
+
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!-- page correspondante au content home-->
+<div ng-controller="Home_traitement">
+
+
+    <h3><center> Bienvenue dans le portail mobile d'information sur les Instituts Privés des Enseignements Supérieurs du cameroun</center></h3>
+    <center><img src="css/images/minesup.gif"></center>						   
+
+
+    <div style="padding:20px 10px;">
+
+        <center>Pour une premiere utilisation veuillez crée(e)r votre compte pour vous connecter<br/> facile et gratuit !!</center>
+        <form>
+            <div style="padding:10px 20px;">
+
+
+                <input ng-model="tel" value="" placeholder="téléphone" data-theme="c" type="text">
+
+                <input ng-model="pass" value="" placeholder="password" data-theme="c" type="password">
+
+                <button type="button"  ng-click="connexionUtilisateur()" data-theme="a" data-icon="check">Connexion</button>
+                <center><font color="red"> <div></div>{{resultat_connexion}}</font></center>
+                <button type="button"  ng-click="compte_user()" data-theme="a" data-icon="user">Créez un compte</button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+     
+
+</div>
+
+<!-- fin page correspondante au content home-->

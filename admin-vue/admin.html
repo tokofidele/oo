@@ -1,0 +1,39 @@
+    
+ <div ng-controller="liste_Region">          
+            
+ 	                  
+                                    <ul data-role="listview" data-inset="true">
+                                    
+					<li data-role="list-divider" data-theme="a" > Liste des IPES par région </li>
+                                        <li><a href="#"  >Adamaoua</a><span class="ui-li-count">01</span></li>
+                                        <li ng-click="admin_liste_Region_centre()"><a href="#" data-ajax="false" data-transition="slide" >Centre</a><span class="ui-li-count">40</span></li>
+                                   
+                                         <li><a href="#"  >Est</a><span class="ui-li-count">03</span></li>
+                                         <li><a href="#"  >Extreme-Nord</a><span class="ui-li-count">01</span></li>
+                                  
+                                         <li ng-click="admin_liste_Region_littoral()"><a href="#" data-transition="slide" >Littoral</a><span class="ui-li-count">38</span></li>
+                                         <li><a href="#"  >Nord</a><span class="ui-li-count">03</span></li>
+                                           <li><a href="#"  >Nord-Ouest</a><span class="ui-li-count">10</span></li>
+                                         <li><a href="#"  >Ouest</a><span class="ui-li-count">09</span></li>
+                                          <li><a href="#"  >Sud</a><span class="ui-li-count">08</span></li>
+                                         <li><a href="#"  >Sud-Ouest</a><span class="ui-li-count">10</span></li>
+                                     </ul>
+									 
+		
+                       
+               
+              
+                  
+                         <div data-role="footer" >
+                                    <div data-role="navbar" data-theme="e">
+                                        <ul>
+                                          <li ng-click="admin_Region()"><a href="#" class="ui-btn-active ui-state-persist" data-transition="slideup">Région</a></li>
+                                          <li  ng-click="admin_ActionDifferees()"><a href="#" data-transition="slideup">Actions différées</a></li>
+                                         
+                                        </ul>
+                                  </div><!-- /navbar -->
+                               
+                                  </div><!-- /footer -->
+	     
+			 
+  </div> 	 

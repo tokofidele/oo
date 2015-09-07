@@ -1,0 +1,42 @@
+ 
+<div ng-controller="operation_etab"> 
+<div ng-controller="operation_annonce">          
+
+    <form>
+        <div style="padding:50px 10px;">
+
+
+
+            <label for="text-1">  Choisir IPES</label>
+          
+             <select  ng-options="data as data.nom_ipes for data in data_ipes_name" select-menu-refresh ng-model="nom_ipes" x-ng-change="name_ipes(nom_ipes)" >
+     
+	    </select>
+
+
+
+            <label for="text-1">  Titre Message :</label>
+            <input name="titre_annonce" ng-model="titre_annonce" value="" placeholder="Titre message" data-theme="a" type="text"/>
+
+            <label for="textarea-6">Votre message:</label>
+            <textarea cols="40" rows="4" name="annonce" ng-model="annonce" placeholder="Votre message"></textarea>
+
+            <label for="text-1">  Choisir etat</label>
+            <div data-role="fieldcontain">										 
+                <select  ng-model="etat_annonce" data-mini="true">
+                    <option>actif</option>
+                    <option>inactif</option>
+
+                </select>
+            </div>
+
+
+            <input value="Enregistrer" data-icon="check" ng-click="save_annonce()" data-iconpos="right" data-mini="true" data-theme="e" type="button">											
+            <center><div> {{result_add_annonce}}</div> </center>
+        </div>	
+
+    </form>
+
+</div>
+</div> 
+  	 

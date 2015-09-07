@@ -1,0 +1,39 @@
+  						 
+
+<div ng-controller="liste_Region">  
+
+    <ul data-role="listview" data-inset="true">
+
+        <li data-role="list-divider"> actions </li>
+        <li ng-click="lecture_annonce()"><a href="#"  ><img src="css/images/message.png" alt="message" class="ui-li-icon">Lire annonces</a></li>
+
+        <li ng-click="envoiyer_Message()"><a href="#"  ><img src="css/images/message.png" alt="message" class="ui-li-icon">Envoyer Messages</a></li>
+
+        <li ng-click="RechercheIpes()" ><a href="#"  ><img src="css/images/recherche.png" alt="message" class="ui-li-icon">Rechercher IPES-CAM</a></li>
+        <li><a href="#"  ><img src="css/images/recherche.png"  class="ui-li-icon">Rechercher Filière</a></li>
+        <li><a href="#"  ><img src="css/images/recherche.png"  class="ui-li-icon">Rechercher Spécialité</a></li>
+
+        <li><a href="#"  ><img src="css/images/statistique.png"  class="ui-li-icon">Stattistiques</a></li>
+
+
+    </ul>	
+
+
+    <div data-role="footer" data-theme="c">
+        <div data-role="navbar">
+            <ul>
+                <li ng-click="Region()"><a href="#" data-transition="slideup">Région</a></li>
+                <li  ng-click="ActionDifferees()"><a href="#" class="ui-btn-active ui-state-persist" data-transition="slideup" >Actions différées</a></li>
+
+            </ul>
+        </div><!-- /navbar -->
+
+    </div><!-- /footer -->
+
+
+
+
+
+
+
+</div>

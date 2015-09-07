@@ -1,0 +1,88 @@
+ 						 
+
+<div ng-controller="liste_Region">  
+
+    <ul data-role="listview" data-inset="true">
+
+        <li data-role="list-divider"> Operations sur une annonce</li>
+        <li><a href="#"><img src="css/images/recherche.png" alt="ipes"  class="ui-li-icon">Retrouver une annonce</a></li>
+        <li ng-click="ajouter_annonce()"><a href="#"><img src="#"    class="ui-li-icon">Ajouter annonces</a></li>
+        
+        <li><a href="#"><img src="#"    class="ui-li-icon">envoyer une annonce</a></li>
+        <li><a href="#"><img src="#"    class="ui-li-icon">publier une annonce</a></li>
+
+
+        <li data-role="list-divider"> Operations sur un IPES</li>
+        <li ng-click="ajouter_ipes()"><a href="#" ><img src="css/images/admin.png"  class="ui-li-icon">Ajouter</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"  class="ui-li-icon">Modifier</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Rechercher</a></li>
+
+        <li data-role="list-divider"> Operations sur une adresse d'un ipes</li>     
+        <li ng-click="ajouter_adresse_ipes()"><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Ajouter</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Modifier</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Rechercher</a></li>
+
+        <li data-role="list-divider"> Operations sur un établissement</li>     
+        <li ng-click="ajouter_etablissement()"><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Ajouter</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Modifier</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Rechercher</a></li>
+
+        <li data-role="list-divider"> Operations sur un diplome</li>     
+        <li ng-click="ajouter_diplome()"><a href="#" ><img src="css/images/admin.png"  class="ui-li-icon">Ajouter</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Modifier</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Rechercher</a></li>
+
+        <li data-role="list-divider"> Operations sur une filière</li>     
+        <li ng-click="ajouter_filiere()"><a href="#" ><img src="css/images/admin.png"  class="ui-li-icon">Ajouter</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Modifier</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Rechercher</a></li>
+
+        <li data-role="list-divider"> Operations sur une spécialité</li>     
+        <li ng-click="ajouter_specialite()"><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Ajouter</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Modifier</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Rechercher</a></li>
+
+        <li data-role="list-divider"> Operations sur une option</li>     
+        <li ng-click="ajouter_option()"><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Ajouter</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"  class="ui-li-icon">Modifier</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Rechercher</a></li>
+
+        <li data-role="list-divider"> Operations sur un planing</li>     
+        <li ng-click="ajouter_planing()"><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Ajouter</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Modifier</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Rechercher</a></li>
+
+        <li data-role="list-divider"> Operations sur une tutelle académique</li>     
+        <li ng-click="ajouter_tutelle()"><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Ajouter</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Modifier</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Rechercher</a></li>
+
+        <li data-role="list-divider"> Operations sur un partenaret </li>     
+        <li><a href="#" ><img src="css/images/admin.png"  class="ui-li-icon">Ajouter</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Modifier</a></li>
+        <li><a href="#" ><img src="css/images/admin.png"   class="ui-li-icon">Rechercher</a></li>
+
+
+
+
+    </ul>	
+
+
+    <div data-role="footer" data-theme="c">
+        <div data-role="navbar">
+            <ul>
+                <li ng-click="admin_Region()"><a href="#" data-transition="slideup">Région</a></li>
+                <li  ng-click="admin_ActionDifferees()"><a href="#" class="ui-btn-active ui-state-persist" data-transition="slideup" >Actions différées</a></li>
+
+            </ul>
+        </div><!-- /navbar -->
+
+    </div><!-- /footer -->
+
+
+
+
+
+
+
+</div>

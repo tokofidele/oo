@@ -1,0 +1,42 @@
+ 
+
+<div ng-controller="head_Controler">
+
+    <div ng-controller="head_nom_ipes">
+        <div ng-controller="cont_gestion_menu_ipes">
+            <div ng-controller="nom_region_ipes">   
+
+
+                <a href="#" data-role="button" ng-click="ipes_region()" data-icon="back" class="ui-btn-left" data-inline="true" data-theme="a">Ipes {{region.region_ipes}}</a>
+
+                <div role="main" class="ui-content">
+                    <a href="#defaultpanel" data-role="button"  data-icon="bars" class="ui-btn-right" data-inline="true" data-theme="a">Menu</a>
+
+
+                </div>
+                <div data-role="panel" id="defaultpanel" data-display="overlay" data-position="right">
+                    <ul data-role="listview" data-icon="false">
+                        <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+
+                        <li ng-repeat="data_menu in ipes_menu" li-jq-mobile ng-click="go_item_menu(data_menu.menu)"><a href="#">{{data_menu.menu}}</a></li>
+
+
+
+                    </ul>
+                </div><!-- /panel -->
+
+
+
+                <h3><center ng-repeat="data_name in ipes_name_presentation"> {{data_name.labelle_ipes}} </center></h3>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
