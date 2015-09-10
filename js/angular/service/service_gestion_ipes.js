@@ -148,7 +148,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_etablissement.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_etablissement.php",
                 data: {'id_ipes': id_ipes}
             }).success(function(data)
             {
@@ -172,7 +172,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_diplome.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_diplome.php",
                 data: {'id_etabl': id_etab}
             }).success(function(data)
             {
@@ -196,7 +196,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_filiere.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_filiere.php",
                 data: {'id_diplome': id_diplome}
             }).success(function(data)
             {
@@ -220,7 +220,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_specialite.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_specialite.php",
                 data: {'id_filiere': id_filiere}
             }).success(function(data)
             {
@@ -243,7 +243,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_option.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_option.php",
                 data: {'id_spécialite': id_spécialite}
             }).success(function(data)
             {
@@ -267,7 +267,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_nom_presentation_ipes.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_nom_presentation_ipes.php",
                 data: {'id_ipes': id_ipes}
             }).success(function(data)
             {
@@ -293,7 +293,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_region_ipes.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_region_ipes.php",
                 data: {'id_ipes': id_ipes}
             }).success(function(data)
             {
@@ -317,7 +317,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_adresse_ipes.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_adresse_ipes.php",
                 data: {'id_ipes': id_ipes}
             }).success(function(data)
             {
@@ -344,7 +344,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_agrement_ipes.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_agrement_ipes.php",
                 data: {'id_ipes': id_ipes}
             }).success(function(data)
             {
@@ -371,7 +371,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_dossier_candidature.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_dossier_candidature.php",
                 data: {'id_diplome': id_diplome}
             }).success(function(data)
             {

@@ -71,7 +71,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
                         var deferred = $q.defer();
                             $http({
                                       method: 'POST', 
-                                      url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_etab_ipes.php",
+                                      url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_etab_ipes.php",
                                       data: {'nom_ipes':data_etabl_ipes}
                                    
                                  }).success (function(data)
@@ -95,7 +95,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
                         var deferred = $q.defer();
                             $http({
                                       method: 'POST', 
-                                      url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_diplome_etab.php",
+                                      url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_diplome_etab.php",
                                       data: {'nom_etabl':data_diplome_etabl}
                                    
                                  }).success (function(data)
@@ -120,7 +120,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
                         var deferred = $q.defer();
                             $http({
                                       method: 'POST', 
-                                      url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_filiere_diplome.php",
+                                      url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_filiere_diplome.php",
                                       data: {'nom_diplome':data_filiere_diplome}
                                    
                                  }).success (function(data)
@@ -143,7 +143,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
                         var deferred = $q.defer();
                             $http({
                                       method: 'POST', 
-                                      url: "http://41.205.8.159/IpesServeur/client-controleur/cont_data_specialite_filiere.php",
+                                      url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_specialite_filiere.php",
                                       data: {'nom_filiere':data_filiere_diplome}
                                    
                                  }).success (function(data)
@@ -166,7 +166,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
                         var deferred = $q.defer();
                             $http({
                                       method: 'POST', 
-                                      url: "http://41.205.8.159/IpesServeur/client-controleur/cont_renvoi_ipes_name.php",
+                                      url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_renvoi_ipes_name.php",
                                       data: {'region':data_ipes_name}
                                    
                                  }).success (function(data)
@@ -188,7 +188,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
 			
 			 $http({
 				 method: 'POST', 
-				 url: "http://41.205.8.159/IpesServeur/client-controleur/cont_ajouter_etab.php",
+				 url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_ajouter_etab.php",
 	            data: data_etab
 	            }).success (function(data) {
  	                $scope.result_add_etab = data.result_add_etab;       

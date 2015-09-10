@@ -25,7 +25,7 @@ ipescam.factory('service_Add_IPES', function($http) {
 			
 			 $http({
 				 method: 'POST', 
-				 url: "http://41.205.8.159/IpesServeur/client-controleur/cont_ajouter_ipes.php",
+				 url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_ajouter_ipes.php",
 	            data: data_ipes
 	            }).success (function(data) {
  	                $scope.result_add_ipes = data.result_add_ipes;       

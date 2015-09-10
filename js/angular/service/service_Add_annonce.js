@@ -21,7 +21,7 @@ ipescam.factory('service_Add_annonce', function($http) {
 			
 			 $http({
 				 method: 'POST', 
-				 url: "http://41.205.8.159/IpesServeur/client-controleur/cont_ajouter_annonce.php",
+				 url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_ajouter_annonce.php",
 	            data: data_annonce
 	            }).success (function(data) {
  	                $scope.result_add_annonce = data.result_add_annonce;       

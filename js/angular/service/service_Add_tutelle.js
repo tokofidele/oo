@@ -21,7 +21,7 @@ ipescam.factory('service_Add_tutele', function($http) {
 			
 			 $http({
 				 method: 'POST', 
-				 url: "http://41.205.8.159/IpesServeur/client-controleur/cont_ajouter_tutelle.php",
+				 url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_ajouter_tutelle.php",
 	            data: data_tutelle
 	            }).success (function(data) {
  	                $scope.result_add_tutelle = data.result_add_tutelle;       
