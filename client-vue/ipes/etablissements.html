@@ -13,27 +13,30 @@
 
             <h3 ng-click="go_id_etab(data.id_etablissement)">{{data.labelle_etalissement}}</h3>
             <p>
-            <center> <img src='css/images/{{data.logo_etablissement}}.gif' class="ui-li-icon"> 
-
-                    <label for="textinput-f"><strong>{{data.labelle_etalissement}}</strong></label>
+              <!--  <img src='css/images/{{data.logo_etablissement}}.gif' class="ui-li-icon"> -->
+             <center> 
+                <label for="textinput-f"><strong>{{data.labelle_etalissement}}</strong></label>
             </center>
-                <!-- champs presentation d'un etablissement-->
+            <!-- champs presentation d'un etablissement-->
 
             <p></p>
 
             <div class="ui-body ui-body-a ui-corner-all">
 
                 <p>{{data.presentation}} </p>
-
+                
+            </div>    
+<!--
+                <b>site web :  </b>{{data.site_web}} 
                 <ul data-role="listview" data-inset="true">
                     <li><a href="{{data.site_web}}" target="_blank">Visiter le site web</a></li>
 
                 </ul>
 
 
-            </div>
+            
 
-
+  -->
 
             <!-- fin champs presentation d'un etablissement-->
 
@@ -47,7 +50,7 @@
 
                     <h3 ng-click="go_id_diplome(data.id_diplome)">{{data.labelle_diplome}}</h3>
                     <p>
-                    <centre>  <label for="textinput-f">{{data.labelle_diplome}}</label> </centre>
+                        <label for="textinput-f"><center><b>{{data.labelle_diplome}}</b></center></label> 
 
 
                         <!-- fin liste de dossier de condidature-->
@@ -61,13 +64,17 @@
 
                             <h3  ng-click="go_id_diplome_dossier(data.id_diplome)"><center>Dossier de candidature</center></h3>
                             <p>
-                                <label for="textinput-f" ng-repeat="data in data_dossier_candidature">{{data.doc_candidature}}</label>
 
-                            </p>
+                            <div class="ui-body ui-body-a ui-corner-all" ng-repeat="data in data_dossier_candidature" jqm-collapsible-repeat>
+                                 {{data.doc_candidature}} 
+
+                            </div> 
+
+
                         </div>
                     </div> 
                     <!-- fin liste de dossier de condidature-->
-                    
+
                     <!-- fin liste des diplomes -->
 
                     <!-- Liste des filieres -->
@@ -83,46 +90,12 @@
 
                             <h3 ng-click="go_id_filiere(data.id_filiere)">{{data.labelle_filiere}}</h3>
                             <p>
-                                <label for="textinput-f"><b>{{data.labelle_filiere}}</b></label>
+                                <label for="textinput-f"><center><b>{{data.labelle_filiere}}</b></center></label>
 
- 
-                                
-                            <div class="ui-body ui-body-a ui-corner-all">
-                                <b>Pré-requis :  </b>{{data.pre_requis}}
-
-                            </div> 
-
-                            <div class="ui-body ui-body-a ui-corner-all">
-                                <b>Durée : </b>{{data.duree}}
-
-                            </div>
-
-
-
-                            <div class="ui-body ui-body-a ui-corner-all">
-                                <b>Cours du jour : </b>{{data.cour_jour}}</br>
-                                <b>Date rentrée scolaire :  </b>{{data.date_rentree_jour}}</br>
-                                <b>Frais d'étude par année :</b></br>
-                                Inscription : {{data.inscription_cour_jour}} FCFA  </br>
-                                Pension :  {{data.pension_cour_jour}}   FCFA
-
-                            </div>
-
-                            <div class="ui-body ui-body-a ui-corner-all">
-                                <b>Cours du soir : </b>{{data.cour_soir}}</br>
-                                 <b>Date rentrée scolaire :  </b>{{data.date_rentree_soir}}</br>
-                                <b>Frais d'étude par année :</b></br>
-                                Inscription : {{data.inscription_cour_soir}} FCFA  </br>
-                                Pension :   {{data.pension_cour_soir}}  FCFA
-
-                            </div>
 
                             <div class="ui-body ui-body-a ui-corner-all">
                                 <b>Tutelle ou partenaire académique : </b>{{data.tutelle}}
-
-
                             </div>
-
 
 
 
@@ -138,11 +111,109 @@
 
                                     <h3 ng-click="go_id_specialite(data.id_specialite)">{{data.labelle_specialite}}</h3>
                                     <p>
-                                        <label for="textinput-f">{{data.labelle_specialite}}</label>
+                                        <label for="textinput-f"><center><b>{{data.labelle_specialite}}</b></center></label>
 
-                                        <!-- fin Liste des specialites -->
 
-                                        <!-- Liste des options -->
+                                        <!-- fin liste de dossier de condidature-->
+                                        <!--
+                                        <ul data-role="listview" data-inset="true">
+                                            <li data-role="list-divider"><font color="red"><center>Grille des Enseignements</center></font></li>
+                                        </ul>
+                                        -->                
+                                        <!-- information sur specialite-->
+
+
+                                    <div ng-repeat="data in data_option" jqm-collapsible-repeat>      
+                                        <div class="ui-body ui-body-a ui-corner-all">
+                                            <b>Forme suivie cour : </b>{{data.forme_suivie}}
+
+                                        </div>      
+
+                                        <div class="ui-body ui-body-a ui-corner-all">
+                                            <b>Pré-requis :  </b>{{data.pre_requis}}
+
+                                        </div> 
+
+                                        <div class="ui-body ui-body-a ui-corner-all">
+                                            <b>Durée : </b>{{data.duree}}
+
+                                        </div>
+
+
+                                        <div class="ui-body ui-body-a ui-corner-all">
+                                            <b>Cours du jour : </b>{{data.cour_jour}}</br>
+                                            <b>Date concour :  </b>{{data.date_concour_cour_jour}}</br>
+                                            <b>Date rentrée scolaire :  </b>{{data.date_rentree_jour}}</br>
+                                            <b>Frais d'étude par année :</b></br>
+                                            <b> Inscription : </b>{{data.inscription_cour_jour}} FCFA  </br>
+                                            <b> Pension : </b> {{data.pension_cour_jour}}   FCFA
+
+                                        </div>
+
+                                        <div class="ui-body ui-body-a ui-corner-all">
+                                            <b>Cours du soir : </b>{{data.cour_soir}}</br>
+                                            <b>Date concour :  </b>{{data.date_concour_cour_soir}}</br>
+                                            <b>Date rentrée scolaire :  </b>{{data.date_rentree_soir}}</br>
+                                            <b>Frais d'étude par année :</b></br>
+                                            <b>  Inscription : </b>{{data.inscription_cour_soir}} FCFA  </br>
+                                            <b> Pension : </b>  {{data.pension_cour_soir}}  FCFA
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <!-- fin information sur specialite-->           
+
+
+
+                                    <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
+                                        <div data-role="collapsible">
+
+                                            <h3  ng-click="go_id_specialite_grille(data.id_specialite)"><center>Grille des Enseignements</center></h3>
+                                            <p>
+
+                                            <div class="ui-body ui-body-a ui-corner-all">
+
+
+                                                <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive">
+                                                    <thead>
+                                                        <tr>
+                                                            <th data-priority="1">Semestre</th>
+                                                            <th data-priority="persist">Unite Enseignement</th>
+                                                            <th data-priority="2">Durée cours magistral</th>
+                                                            <th data-priority="3"><abbr title="Rotten Tomato Rating">Durée travaux dirrigés</abbr></th>
+                                                            <th data-priority="4">Durée travaux pratique</th>
+                                                            <th data-priority="4">Obligatoire</th>
+                                                            <th data-priority="4">Credits</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody  ng-repeat="data in data_UE">
+                                                        <tr>
+                                                            <th>{{data.labelle_semestre_ue}}</th>
+                                                            <td>{{data.labelle_unite_e}}</td>
+                                                            <td>{{data.duree_cour_magistraux}}Heures</td>
+                                                            <td>{{data.duree_td}} Heures</td>
+                                                            <td>{{data.duree_tp}}Heures</td>
+                                                            <td>{{data.obligatoire}}</td>
+                                                            <td>{{data.nb_credit}}</td>
+                                                        </tr>
+                                                     </tbody>
+                                                </table>
+                                                
+                                                
+
+
+
+                                            </div> 
+
+
+                                        </div>
+                                    </div> 
+                                    <!-- fin liste de dossier de condidature-->
+
+                                    <!-- Liste des options -->
 
                                     <ul data-role="listview" data-inset="true">
                                         <li data-role="list-divider"><font color="red"><center>Options</center></font></li>
@@ -158,31 +229,36 @@
                                         </div>
                                     </div>
 
-
-
                                 </div>
+                                <!-- fin Liste des specialites -->
+
+
+
+
+
                             </div>
-
-
-
                         </div>
+
 
 
                     </div>
 
 
-
                 </div>
 
-            </div>    
+
+
+            </div>
+
+        </div>    
 
 
 
 
-
-        </div>
 
     </div>
+
+</div>
 
 </div>
 

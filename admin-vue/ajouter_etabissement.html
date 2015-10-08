@@ -8,7 +8,7 @@
 
             <label for="text-1">  Choisir IPES</label>
           
-             <select  ng-options="data as data.nom_ipes for data in data_ipes_name" select-menu-refresh ng-model="etab_zero" x-ng-change="update(etab_zero)" >
+             <select  ng-options="data as data.nom_ipes for data in data_ipes_name" select-menu-refresh ng-model="item" x-ng-change="update(item)" >
      
 	    </select>
 
@@ -22,6 +22,13 @@
             
             <label for="text-1">  Logo etablissement</label>
             <input name="nom" ng-model="logo_etab" value="" placeholder="logo " data-theme="a" type="text">
+
+            <label for="textarea-6">Presentation etablissement</label>
+            <textarea cols="40" rows="3" ng-model="presentation" id="annonce" placeholder="Votre message"></textarea>
+            
+             <label for="file-2">Site web :</label>
+            <input data-clear-btn="true" name="site_web" ng-model="site_web" value="site_web" type="text">
+            
 
 
             <label for="text-1">  Choisir etat</label>

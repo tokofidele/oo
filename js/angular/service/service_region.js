@@ -39,7 +39,7 @@ ipescam.factory('service_region', function($http) {
 			
 			$http({
 			 method: 'POST', 
-			 url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_affiche_ipes.php",
+			 url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_affiche_ipes.php",
              data: postData_Region
               }).success (function(data) 
                           {

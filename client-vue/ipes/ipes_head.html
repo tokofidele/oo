@@ -17,10 +17,11 @@
                 <div data-role="panel" id="defaultpanel" data-display="overlay" data-position="right">
                     <ul data-role="listview" data-icon="false">
                         <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                         <li ng-click="accueil()" data-icon="home"><a href="#">Accueil</a></li>
 
                         <li ng-repeat="data_menu in ipes_menu" li-jq-mobile ng-click="go_item_menu(data_menu.menu)"><a href="#">{{data_menu.menu}}</a></li>
 
-
+                       
 
                     </ul>
                 </div><!-- /panel -->

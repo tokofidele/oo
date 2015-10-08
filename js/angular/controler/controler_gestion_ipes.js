@@ -26,6 +26,11 @@ ipescam.controller('cont_gestion_ipes', ['$scope', 'service_gestion_ipes', funct
 }]).controller('cont_gestion_menu_ipes', ['$scope', 'service_gestion_ipes', function($scope, service_gestion_ipes)
 
     {
+     $scope.accueil=function()
+      {
+          window.loggedIn = 'accueil';
+      }
+       
       $scope.go_item_menu=function(menu)
       {
          if(menu=="Etablissmenets")
@@ -38,15 +43,23 @@ ipescam.controller('cont_gestion_ipes', ['$scope', 'service_gestion_ipes', funct
              { 
                  window.loggedIn = 'etablissement';
              });
-               
+              
          }
+         
+         
+         
+         
+         
          else
               if(menu=="Localisation et Adresse")
          {
              //la ligne suivante recupere id ipes cliqué mis dans le tableau du service
              var id_ipes= service_gestion_ipes.getData_id_ipes();
-            
+             
+              service_gestion_ipes.serverRequest11(id_ipes.id_ipes);
+              
              var promise = service_gestion_ipes.serverRequest7(id_ipes.id_ipes);
+             
              promise.then(function()
              { 
                  window.loggedIn = 'adresse_ipes';
@@ -54,11 +67,7 @@ ipescam.controller('cont_gestion_ipes', ['$scope', 'service_gestion_ipes', funct
              
          }
           else
-              if(menu=="Partenaires")
-         {
-             
-         }
-          else
+        
               if(menu=="Certification")
          {
              
@@ -83,6 +92,13 @@ ipescam.controller('cont_gestion_ipes', ['$scope', 'service_gestion_ipes', funct
     //action pour les ipes du coté de la recherche  
       $scope.go_item_menu_all=function(menu)
       {
+          
+      $scope.accueil_all=function()
+      {
+          window.loggedIn = 'accueil_all';
+      }
+          
+          
          if(menu=="Etablissmenets")
          {
              //la ligne suivante recupere id ipes cliqué mis dans le tableau du service
@@ -113,11 +129,7 @@ ipescam.controller('cont_gestion_ipes', ['$scope', 'service_gestion_ipes', funct
          {
              
          }
-          else
-              if(menu=="Certification")
-         {
-             
-         }
+        
           else
              if(menu=="Agrément")
          {
@@ -141,6 +153,8 @@ ipescam.controller('cont_gestion_ipes', ['$scope', 'service_gestion_ipes', funct
          $scope.data_etablissement= service_gestion_ipes.getData_etablissement(); //liste des etablissements en fonction des ipes
          $scope.data_menu_adresse= service_gestion_ipes.getData_menu_adresse(); // menu adresse  d'un ipes
           $scope.data_adresse= service_gestion_ipes.getData_adresse_ipes(); // adresse en fonction d'un ipes
+           $scope.data_quartier= service_gestion_ipes.getData_quartier_ipes(); // liste quartier d'un ipes
+          
            $scope.data_agrement= service_gestion_ipes.getData_agrement_ipes(); // agrement en fonction d'un ipes 
           
          
@@ -217,8 +231,27 @@ ipescam.controller('cont_gestion_ipes', ['$scope', 'service_gestion_ipes', funct
                    $scope.data_option= service_gestion_ipes.getData_option(); 
                });
                
+                 
    
         }
+        
+        
+        
+           //gestion   des grilles enseignement:on clic sur une specialite et
+    // on recupere l'id de la specialite et on recherche le liste des enseignement asscoiées 
+         $scope.go_id_specialite_grille = function(path)
+        {
+               
+            var promise = service_gestion_ipes.serverRequest10(path);           
+            
+               promise.then( function()
+               {               
+                   $scope.data_UE = service_gestion_ipes.getData_UE(); 
+               });
+             
+   
+        }
+   
    
         
          

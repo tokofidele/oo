@@ -20,9 +20,10 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
     var data_region_ipes = {};
     var data_id_ipes = {};
     var data_adresse_ipes = {};
+      var data_quartier_ipes = {};
     var data_menu_adresse = {};
      var data_dossier = {};
-    
+      var data_UE = {};
     return {
         // retourne la liste du menu d'un IPES
         getData_menu: function()
@@ -61,6 +62,15 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
             return data_adresse_ipes;
 
         },
+        
+         // retourne liste quartier d'un ipes
+        getData_quartier_ipes: function()
+        {
+
+            return data_quartier_ipes;
+
+        },
+        
         
         // retourne la liste du menu qdresse d'un IPES
         getData_menu_adresse: function()
@@ -133,6 +143,19 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
             return data_specialite;
 
         },
+        
+         // retourne la liste des unite d'enseignements d'unespecialite
+        getData_UE: function()
+        {
+
+            return data_UE;
+
+        },
+        
+        
+        
+        
+        
         // retourne la liste des options
         getData_option: function()
         {
@@ -148,7 +171,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_etablissement.php",
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_etablissement.php",
                 data: {'id_ipes': id_ipes}
             }).success(function(data)
             {
@@ -172,7 +195,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_diplome.php",
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_diplome.php",
                 data: {'id_etabl': id_etab}
             }).success(function(data)
             {
@@ -196,7 +219,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_filiere.php",
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_filiere.php",
                 data: {'id_diplome': id_diplome}
             }).success(function(data)
             {
@@ -220,7 +243,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_specialite.php",
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_specialite.php",
                 data: {'id_filiere': id_filiere}
             }).success(function(data)
             {
@@ -243,7 +266,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_option.php",
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_option.php",
                 data: {'id_spécialite': id_spécialite}
             }).success(function(data)
             {
@@ -267,7 +290,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_nom_presentation_ipes.php",
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_nom_presentation_ipes.php",
                 data: {'id_ipes': id_ipes}
             }).success(function(data)
             {
@@ -293,7 +316,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_region_ipes.php",
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_region_ipes.php",
                 data: {'id_ipes': id_ipes}
             }).success(function(data)
             {
@@ -311,19 +334,16 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 //        
 //        
         
-        //  recupere la l'adresse d'un ipes  
+        //  recupere  l'adresse d'un ipes  
         serverRequest7: function(id_ipes) {
             var deferred = $q.defer();
 
             $http({
                 method: 'POST',
-                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_adresse_ipes.php",
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_adresse_ipes.php",
                 data: {'id_ipes': id_ipes}
             }).success(function(data)
             {
-
-//                                    $scope.data_Ipes=data; 
-//                                    data_Ipes=$scope.data_Ipes;
 
                 data_adresse_ipes = data;
                 // datas.val='valeur';
@@ -344,7 +364,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_agrement_ipes.php",
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_agrement_ipes.php",
                 data: {'id_ipes': id_ipes}
             }).success(function(data)
             {
@@ -371,7 +391,7 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_dossier_candidature.php",
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_dossier_candidature.php",
                 data: {'id_diplome': id_diplome}
             }).success(function(data)
             {
@@ -380,6 +400,52 @@ ipescam.factory('service_gestion_ipes', function($q, $http) {
                 data_dossier = data;
 
                 deferred.resolve(data_dossier);
+
+            });
+            return deferred.promise;
+
+
+        },
+        
+        
+           //  prend id specialité en paramettre et recherche les unite enseignement liée.
+        serverRequest10: function(id_spécialite) {
+ 
+
+            var deferred = $q.defer();
+
+            $http({
+                method: 'POST',
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_unite_enseignement.php",
+                data: {'id_spécialite': id_spécialite}
+            }).success(function(data)
+            {
+
+
+                data_UE = data;
+
+                deferred.resolve(data_UE);
+
+            });
+            return deferred.promise;
+
+
+        },
+        
+         //  recupere  la liste des quartier  d'un ipes  
+        serverRequest11: function(id_ipes) {
+            var deferred = $q.defer();
+
+            $http({
+                method: 'POST',
+                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_quartier_ipes.php",
+                data: {'id_ipes': id_ipes}
+            }).success(function(data)
+            {
+
+                data_quartier_ipes = data;
+                // datas.val='valeur';
+                deferred.resolve(data_quartier_ipes);
 
             });
             return deferred.promise;

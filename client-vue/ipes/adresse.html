@@ -14,7 +14,14 @@
 
 
         <div class="ui-body ui-body-a ui-corner-all">
-            <b>site web :  </b>{{data.site_web_ipes}}
+            <b>site web :  </b>{{data.site_web_ipes}} 
+          
+                  <ul data-role="listview" data-inset="true">
+                    <li><a href="{{data.site_web_ipes}}" target="_blank">Visiter le site web </a></li>
+
+                </ul>
+          
+            
 
         </div>
 
@@ -37,44 +44,18 @@
             <b>Adresse electronique : </b> {{data.mail}}
 
         </div>
-
+        
         <div class="ui-body ui-body-a ui-corner-all">
-            <b>Localisation : </b> {{data.localisation_ipes}}
+            <b>liste des quartiers :  </b> 
+            <p>
+                  <div class="ui-body ui-body-a ui-corner-all"  ng-repeat="data in data_quartier">
+                      {{data.labelle_quartier}}
 
+                  </div>
+        
         </div>
-        <!--       
-               
-               <div data-role="collapsible">
-                   <h3>site web</h3>
-                   <p>{{data.site_web_ipes}}</p>
-               </div>
-               
-               <div data-role="collapsible">
-                   <h3>Téléphone</h3>
-                   <p>{{data.telephone_ipes}}</p>
-               </div>
-               
-               <div data-role="collapsible">
-                   <h3>Boite postale</h3>
-                   <p>{{data.boite_postale_ipes}}</p>
-               </div>
-       
-               <div data-role="collapsible">
-                   <h3>Fax</h3>
-                   <p>{{data.fax_ipes}}</p>
-               </div>
-       
-               <div data-role="collapsible">
-                   <h3>Adresse electronique</h3>
-                   <p>{{data.mail}}</p>
-               </div>
-       
-               <div data-role="collapsible">
-                   <h3>Localisation</h3>
-                   <p>{{data.localisation_ipes}}</p>
-               </div>
-               
-        -->    
+
+           
     </div>
 
 

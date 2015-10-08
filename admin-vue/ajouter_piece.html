@@ -1,0 +1,50 @@
+ 
+
+<!--le controleur gestion_diplome se trouve dans le controleur gestion_list_region
+  l a pour objectif de retourner dans ce cas la liste des etablissements en fonction de lipes choisi
+et ensuite dans le controleur gestion filiere on va controler la liste des diplome en fonction de letablissement choisi
+
+-->
+<div ng-controller="operation_etab">
+    <div ng-controller="operation_diplome">   <!--  charge le nom des ipes et sa selection charge lenom des etablissements-->       
+
+        <div ng-controller="operation_piece">     <!--  ajoute piece-->      
+
+            <form>
+                <div style="padding:50px 10px;">
+
+
+                    <!--charge la liste des nom des ipes --> 
+                    <label for="text-1">  Choisir IPES</label>
+                    <select  ng-options="data as data.nom_ipes for data in data_ipes_name" ng-model="ipes_diplome" x-ng-change="update1(ipes_diplome)" >
+
+                    </select>
+
+
+                    <label for="text-1">  Choisir etablissement</label>
+                    <select  ng-options="data1 as data1.labelle_etalissement for data1 in data_etab_ipes" ng-model="ipes_etab" x-ng-change="update3(ipes_etab)" >
+
+                    </select>
+
+
+                    <label for="text-1">  Choisir diplome</label>
+                    <select  ng-options="data2 as data2.labelle_diplome for data2 in data_diplome_etab" ng-model="diplome_etab" x-ng-change="update4(diplome_etab)" >
+
+                    </select>
+
+
+                    <label for="text-1">  Ajouter pièce candidature :</label>
+                   <textarea cols="40" rows="3" ng-model="piece_candidature" id="annonce" placeholder="Ajouter pièce candidature"></textarea>
+
+
+
+                    <input value="Enregistrer" data-icon="check" ng-click="save_piece()" data-iconpos="right" data-mini="true" data-theme="e" type="button">											
+                    <center><div> {{result_add_piece}}</div> </center>
+
+                </div>	
+
+            </form>
+
+        </div>
+    </div> 
+</div>

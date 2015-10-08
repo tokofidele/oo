@@ -17,11 +17,11 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
         }
 
 
-//  appelle template ajouter tutelle academique
-        $scope.ajouter_tutelle = function()
+//  appelle template ajouter planing academique
+        $scope.ajouter_planing = function()
         {
             // alert('tokus');
-            window.loggedIn = 'ajouter_tutelle';
+            window.loggedIn = 'ajouter_planing';
         }
 //  appelle template ajouter ipes
         $scope.ajouter_ipes = function()
@@ -30,12 +30,21 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
             window.loggedIn = 'ajouter_ipes';
         }
 
-        //  appelle template ajouter adresse a unipes
+        //  appelle template ajouter adresse a un ipes
         $scope.ajouter_adresse_ipes = function()
         {
             // alert('tokus');
             window.loggedIn = 'ajouter_adresse_ipes';
         }
+        
+         //  appelle template ajouter quartier pour un ipes
+        $scope.ajouter_quartier_ipes = function()
+        {
+            // alert('tokus');
+            window.loggedIn = 'ajouter_quartier_ipes';
+        }
+        
+        
 
         //  appelle template etablissement
         $scope.ajouter_etablissement = function()
@@ -59,11 +68,11 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
         }
 
 
-        //  appelle template ajouter option
-        $scope.ajouter_option = function()
+        //  appelle template ajouter semestre
+        $scope.ajouter_semestre = function()
         {
 
-            window.loggedIn = 'add_option';
+            window.loggedIn = 'add_semestre';
         }
 
 
@@ -75,10 +84,10 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
         }
 
         //  appelle template paning
-        $scope.ajouter_planing = function()
+        $scope.ajouter_piece = function()
         {
             // alert('tokus');
-            window.loggedIn = 'add_planing';
+            window.loggedIn = 'add_piece';
         }
 
 
@@ -122,6 +131,15 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
             // alert('tokus');
             window.loggedIn = 'action';
         }
+        
+        
+         //  appelle template ajouter une option d'une specialite
+        $scope.ajouter_option = function()
+        {
+            // alert('tokus');
+            window.loggedIn = 'add_option';
+        }
+        
 
         //appelle template Region       
         $scope.Region = function()
@@ -161,19 +179,19 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
         {
             //recuperation champs localisation  
             data_ipes.ville = $scope.ville_ipes;
-            data_ipes.quartier = $scope.quartier_ipes;
+
 
             //recuperation des autre champs 
             data_ipes.nom_ipes = $scope.nom_ipes;
             data_ipes.accord_creaion = $scope.accord_creaion;
             data_ipes.autorisation = $scope.autorisation;
             data_ipes.nom_promoteur = $scope.nom_promoteur;
-            data_ipes.presenttion = $scope.presenttion;
+            data_ipes.presentation = $scope.presentation;
             //recuperation du logoipes
             data_ipes.logo_ipes = $scope.logo_ipes;
             data_ipes.sigle_ipes = $scope.sigle_ipes;
             //recuperation champs adresse 
-
+            data_ipes.site_ipes = $scope.site_ipes;
             data_ipes.etat_ipes = $scope.etat_ipes;
 
             service_Add_IPES.serverRequest(data_ipes, $scope);
@@ -203,12 +221,19 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
 
         var data_adresse_ipes = {};
         data_adresse_ipes.ipes_etab = null;
+        
+        var data_quartier_ipes = {};
+        data_quartier_ipes.ipes_etab = null;
+        
+        
+        
 
         //on recupere le nom de l'ipes selectionné
 
         $scope.update = function(data_ipes_name)
         {
             data_adresse_ipes.ipes_etab = data_ipes_name.nom_ipes;
+            data_quartier_ipes.ipes_etab = data_ipes_name.nom_ipes;
         }
 
         $scope.save_adresse_ipes = function()
@@ -223,12 +248,24 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
             data_adresse_ipes.fax = $scope.fax;
 
             data_adresse_ipes.mail = $scope.mail;
-            data_adresse_ipes.localisation = $scope.localisation;
+            
 
 
 
             service_Add_adresse_ipes.serverRequest(data_adresse_ipes, $scope);
         }
+        
+        
+         $scope.save_quartier_ipes = function()
+        {
+ 
+            data_quartier_ipes.quartier = $scope.quartier;
+            data_quartier_ipes.etat_quartier = $scope.etat_quartier;
+            service_Add_adresse_ipes.serverRequest1(data_quartier_ipes, $scope);
+        }
+        
+        
+        
         // controleur pour operation sur etablissements  
     }]).controller('operation_etab', ['$scope', 'service_Add_etab', '$timeout', function($scope, service_Add_etab, $timeout)
     {
@@ -244,6 +281,9 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
             {
                 $scope.data_ipes_name = service_Add_etab.getData_ipesName();
 
+            }).then(function()
+            {
+                $scope.item = $scope.data_ipes_name[0];
             });
 
 
@@ -276,6 +316,8 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
 
             data_etab.etat_etab = $scope.etat_etab;
 
+            data_etab.presentation = $scope.presentation;
+            data_etab.site_web = $scope.site_web;
 
             service_Add_etab.serverRequest(data_etab, $scope);
         }
@@ -330,8 +372,10 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
             data_diplome.label_diplome = $scope.label_diplome;
 
 
-            data_diplome.sigle_diplome = $scope.sigle_diplome;
+            data_diplome.duree_formation = $scope.duree_formation;
             data_diplome.etat_diplome = $scope.etat_diplome;
+            //data_diplome.tutelle = $scope.tutelle;
+
 
 
             service_Add_diplome.serverRequest(data_diplome, $scope);
@@ -388,10 +432,64 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
 
 
             data_filiere.sigle_filiere = $scope.sigle_filiere;
+            data_filiere.tutelle = $scope.tutelle;
             data_filiere.etat_filiere = $scope.etat_filiere;
+            
 
 
             service_Add_filiere.serverRequest(data_filiere, $scope);
+        }
+        // controleur pour operation sur specialite   
+    }]).controller('operation_piece', ['$scope', 'service_Add_piece', 'service_Add_etab', '$timeout', function($scope, service_Add_piece, service_Add_etab, $timeout)
+    {
+
+        //gerer par service_Add_etab=============================================================
+
+        // charge le nom des diplome en fonction du nom des etablissements choisi
+        $scope.update3 = function(data_etab_ipes)
+        {
+            var promise = service_Add_etab.serverRequest3(data_etab_ipes.labelle_etalissement);
+
+            // Simulate loading data
+            $timeout(function() {
+
+                promise.then(function()
+                {
+                    $scope.data_diplome_etab = service_Add_etab.getData_dipome_etab();
+
+                });
+
+
+            }, 2000);
+
+
+        }
+
+        // fin charge le nom des etablissements en fonction du nom ipes choisi
+
+        //gerer par service_Add_etab=============================================================
+
+
+
+        // ajoute une filiere a un diplome======================================================
+        var data_piece = {};
+
+        data_piece.diplome_piece = null;
+
+        //on recupere le nom du diplome selectionné
+
+        $scope.update4 = function(data_diplome_name)
+        {
+            data_piece.diplome_piece = data_diplome_name.labelle_diplome;
+        }
+
+        $scope.save_piece = function()
+        {
+
+            data_piece.piece_candidature = $scope.piece_candidature;
+
+
+            service_Add_piece.serverRequest(data_piece, $scope);
         }
         // controleur pour operation sur specialite   
     }]).controller('operation_specialite', ['$scope', 'service_Add_specialite', 'service_Add_etab', '$timeout', function($scope, service_Add_specialite, service_Add_etab, $timeout)
@@ -439,17 +537,105 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
         {
 
             data_specialite.label_specialite = $scope.label_specialite;
-            data_specialite.forme_suivi = $scope.forme_suivi;
+
 
 
             data_specialite.sigle_specialite = $scope.sigle_specialite;
+
+
             data_specialite.etat_specialite = $scope.etat_specialite;
+
+            data_specialite.duree_formation = $scope.duree_formation;
+            data_specialite.prerequis = $scope.prerequis;
+
+            data_specialite.forme_suivi = $scope.forme_suivi;
+            data_specialite.cour_jour = $scope.cour_jour;
+            data_specialite.inscription_CJ = $scope.inscription_CJ;
+
+            data_specialite.pension_CJ = $scope.pension_CS;
+            data_specialite.date_CJ = $scope.date_CS;
+
+
+
+            data_specialite.cour_soir = $scope.cour_soir;
+            data_specialite.inscription_CS = $scope.inscription_CS;
+
+            data_specialite.pension_CS = $scope.pension_CS;
+            data_specialite.date_CS = $scope.date_CS;
+
 
 
             service_Add_specialite.serverRequest(data_specialite, $scope);
         }
         // controleur pour operation sur planing 
     }]).controller('operation_planing', ['$scope', 'service_Add_planing', 'service_Add_etab', '$timeout', function($scope, service_Add_planing, service_Add_etab, $timeout)
+    {
+        // charge le nom des specialite en fonction des filieres choisies
+        $scope.update7 = function(data_filiere_diplome)
+        {
+            var promise = service_Add_etab.serverRequest5(data_filiere_diplome.labelle_filiere);
+
+            // Simulate loading data
+            $timeout(function() {
+
+                promise.then(function()
+                {
+                    $scope.data_specialite_filiere = service_Add_etab.getData_specialite_filiere();
+
+                });
+
+
+            }, 2000);
+
+
+        }
+
+        // fin charge le nom des specialite en fonction des filieres choisies
+
+        // recupere la liste des semestre en fonction des specialite choisie
+        $scope.update9 = function(data_specialite_filiere)
+        {
+
+            var promise = service_Add_etab.serverRequest6(data_specialite_filiere.labelle_specialite);
+
+            // Simulate loading data
+            $timeout(function() {
+
+                promise.then(function()
+                {
+                    $scope.data_semestre_specialite = service_Add_etab.getData_semestre_specialite();
+
+                });
+
+
+            }, 2000);
+ 
+        }
+
+        var data_planing = {};
+
+        //on recupere le nom semestre selectionné
+
+        $scope.update11 = function(data_semestre_specialite)
+        {
+            data_planing.semestre_specialite = data_semestre_specialite.labelle_semestre;
+        }
+//
+        $scope.save_planing = function()
+        {
+
+            data_planing.label_ue = $scope.label_ue;
+            data_planing.duree_cm = $scope.duree_cm;
+             data_planing.duree_td = $scope.duree_td;
+            data_planing.duree_tp = $scope.duree_tp;
+            data_planing.nb_credit = $scope.nb_credit;
+            data_planing.obligatoire = $scope.obligatoire;
+            data_planing.etat_ue = $scope.etat_ue;
+ 
+            service_Add_planing.serverRequest(data_planing, $scope);
+        }
+        // controleur pour operation sur semestre  
+    }]).controller('operation_semestre', ['$scope', 'service_Add_semestre', 'service_Add_etab', '$timeout', function($scope, service_Add_semestre, service_Add_etab, $timeout)
     {
 
         //gerer par service_Add_etab=============================================================
@@ -474,39 +660,30 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
 
         }
 
-        // fin charge le nom des filiere en fonction des diplome choisi
+        // fin charge le nom des specialite en fonction des filieres choisies
 
         //gerer par service_Add_etab=============================================================
 
-        var data_planing = {};
+        var data_semestre = {};
 
-        data_planing.specialite_planing = null;
+        data_semestre.specialite_filiere = null;
 
-        //on recupere le nom specialite selectionné
+        //on recupere le nom de la specialité selectionnée
 
         $scope.update8 = function(specialite_filiere)
         {
-            data_planing.specialite_planing = specialite_filiere.labelle_specialite;
+            data_semestre.specialite_filiere = specialite_filiere.labelle_specialite;
         }
 
-        $scope.save_planing = function()
+        $scope.save_semestre = function()
         {
 
-            data_planing.cond_acces = $scope.cond_acces;
-            data_planing.objectif = $scope.objectif;
-            data_planing.labelle_planing = $scope.labelle_planing;
+            data_semestre.label_semestre = $scope.label_semestre;
+            data_semestre.etat_semestre = $scope.etat_semestre;
 
-
-            data_planing.debouche = $scope.debouche;
-            data_planing.duree_etude = $scope.duree_etude;
-            data_planing.programme = $scope.programme;
-            data_planing.frais_etude = $scope.frais_etude;
-
-
-
-            service_Add_planing.serverRequest(data_planing, $scope);
+            service_Add_semestre.serverRequest(data_semestre, $scope);
         }
-        // controleur pour operation sur option  
+
     }]).controller('operation_option', ['$scope', 'service_Add_option', 'service_Add_etab', '$timeout', function($scope, service_Add_option, service_Add_etab, $timeout)
     {
 
@@ -532,7 +709,7 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
 
         }
 
-        // fin charge le nom des filiere en fonction des diplome choisi
+        // fin charge le nom des specialite en fonction des filieres choisies
 
         //gerer par service_Add_etab=============================================================
 
@@ -540,7 +717,7 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
 
         data_option.specialite_filiere = null;
 
-        //on recupere le nom du diplome selectionné
+        //on recupere le nom de la specialité selectionnée
 
         $scope.update8 = function(specialite_filiere)
         {
@@ -551,7 +728,6 @@ ipescam.controller('liste_Region', ['$scope', function($scope)
         {
 
             data_option.label_option = $scope.label_option;
-            data_option.sigle_option = $scope.sigle_option;
             data_option.etat_option = $scope.etat_option;
 
             service_Add_option.serverRequest(data_option, $scope);

@@ -18,7 +18,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
         var data_dipome_etab={};
         var data_filiere_dipome={};
         var data_specialite_filiere={};
-        
+          var data_semestre_specialite={};
         
 	return {
             
@@ -64,6 +64,16 @@ ipescam.factory('service_Add_etab', function($q,$http) {
  
 		 },
             
+              // renvoi la liste des semestre  en fonction des specialite choisie
+             getData_semestre_specialite: function() 
+                 {
+                   
+                        return data_semestre_specialite;
+ 
+		 },
+            
+            
+            
              // renvoi la liste des etablissement  en fonction des nom ipes choisie
                serverRequest2 : function(data_etabl_ipes){
 			
@@ -71,7 +81,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
                         var deferred = $q.defer();
                             $http({
                                       method: 'POST', 
-                                      url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_etab_ipes.php",
+                                      url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_etab_ipes.php",
                                       data: {'nom_ipes':data_etabl_ipes}
                                    
                                  }).success (function(data)
@@ -95,7 +105,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
                         var deferred = $q.defer();
                             $http({
                                       method: 'POST', 
-                                      url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_diplome_etab.php",
+                                      url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_diplome_etab.php",
                                       data: {'nom_etabl':data_diplome_etabl}
                                    
                                  }).success (function(data)
@@ -120,7 +130,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
                         var deferred = $q.defer();
                             $http({
                                       method: 'POST', 
-                                      url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_filiere_diplome.php",
+                                      url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_filiere_diplome.php",
                                       data: {'nom_diplome':data_filiere_diplome}
                                    
                                  }).success (function(data)
@@ -143,7 +153,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
                         var deferred = $q.defer();
                             $http({
                                       method: 'POST', 
-                                      url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_data_specialite_filiere.php",
+                                      url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_specialite_filiere.php",
                                       data: {'nom_filiere':data_filiere_diplome}
                                    
                                  }).success (function(data)
@@ -158,6 +168,32 @@ ipescam.factory('service_Add_etab', function($q,$http) {
 			 
 			
 		},
+                
+                
+                // renvoi la liste des semestres  en fonction des specialite choisis
+               serverRequest6 : function(data_specialite_filiere){
+			
+			     
+                        var deferred = $q.defer();
+                            $http({
+                                      method: 'POST', 
+                                      url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_data_semestre_specialite.php",
+                                      data: {'nom_specialite':data_specialite_filiere}
+                                   
+                                 }).success (function(data)
+                                 {
+
+//                                    $scope.data_Ipes_all=data; 
+//                                    data_Ipes_all=$scope.data_Ipes;
+                                    data_semestre_specialite=data;
+                                    deferred.resolve(data_semestre_specialite);
+                               
+                                });   return deferred.promise;                                            
+			 
+			
+		},
+                
+                
             
             // fonction qui renvoi la liste des nom ipes
                serverRequest1 : function(data_ipes_name){
@@ -166,7 +202,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
                         var deferred = $q.defer();
                             $http({
                                       method: 'POST', 
-                                      url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_renvoi_ipes_name.php",
+                                      url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_renvoi_ipes_name.php",
                                       data: {'region':data_ipes_name}
                                    
                                  }).success (function(data)
@@ -188,7 +224,7 @@ ipescam.factory('service_Add_etab', function($q,$http) {
 			
 			 $http({
 				 method: 'POST', 
-				 url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_ajouter_etab.php",
+				 url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_ajouter_etab.php",
 	            data: data_etab
 	            }).success (function(data) {
  	                $scope.result_add_etab = data.result_add_etab;       

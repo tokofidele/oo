@@ -17,16 +17,7 @@
 
                 </select>
             </div>
-
-            <label for="text-1">  Choisir quartier :</label>
-            <div data-role="fieldcontain">										 
-                <select name="quartier" ng-model="quartier_ipes" data-mini="true">
-                    <option>Nlogbessou</option>
-                    <option>Nkolbisson et Ekounou</option>
-                     <option>Quartier Fouda</option>
-                     <option>Campus de Mvog Mbi et de Coron</option>
-                </select>
-            </div>
+        
             <label for="text-1">  Nom ipes:</label>
             <input name="nom" ng-model="nom_ipes" value="" placeholder="Nom ipes" data-theme="a" type="text">
 
@@ -43,14 +34,19 @@
             <input name="user" ng-model="nom_promoteur" value="" placeholder="Nom promoteur" data-theme="a" type="text">
             
              <label for="textarea-6">Presentation de IPES</label>
-            <textarea cols="40" rows="3" ng-model="presenttion" id="annonce" placeholder="Votre message"></textarea>
+            <textarea cols="40" rows="3" ng-model="presentation" id="annonce" placeholder="Votre message"></textarea>
 
 
             <label for="file-2">Logo :</label>
             <input data-clear-btn="true" name="logo" ng-model="logo_ipes" value="logo_ipes" type="text">
+              
 
+             <label for="file-2">Site web :</label>
+            <input data-clear-btn="true" name="site_ipes" ng-model="site_ipes" value="logo_ipes" type="text">
+            
+         
            
-                <legend>état établissement:</legend>
+                <legend>état IPES</legend>
                  <select name="etablissement" ng-model="etat_ipes" data-mini="true">
                     <option>actif</option>
                     <option>inactif</option>

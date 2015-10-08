@@ -35,12 +35,15 @@ et ensuite dans le controleur gestion filiere on va controler la liste des diplo
 
             <label for="text-1">  Libelle filiere :</label>
             <input name="user" ng-model="label_filiere" value="" placeholder="labelle" data-theme="a" type="text">
+            
+            <label for="text-1"> Tutelle ou partenaire académique</label>
+            <input name="nom" ng-model="tutelle" value="" placeholder="tutelle ou partenaire académique " data-theme="a" type="text">
 
             <label for="text-1">  Sigle filiere</label>
             <input name="nom" ng-model="sigle_filiere" value="" placeholder="sigle " data-theme="a" type="text">
 
 
-            <label for="text-1">  Choisir filière</label>
+            <label for="text-1">  état filière</label>
             <div data-role="fieldcontain">										 
                 <select  ng-model="etat_filiere" data-mini="true">
                     <option>actif</option>

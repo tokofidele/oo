@@ -1,0 +1,37 @@
+ 
+<div ng-controller="operation_adresse_ipes">          
+
+    <form>
+        <div style="padding:50px 10px;">
+
+
+
+            <label for="text-1">  Choisir IPES</label>
+
+            <select  ng-options="data as data.nom_ipes for data in data_ipes_name" select-menu-refresh ng-model="etab_zero" x-ng-change="update(etab_zero)" >
+
+            </select>
+
+
+
+            <label for="text-1">  ajouter quartier :</label>
+            <input name="user" ng-model="quartier" value="" placeholder="site web" data-theme="a" type="text">
+            
+               <label for="text-1">  Choisir etat</label>
+                            <div data-role="fieldcontain">										 
+                                <select  ng-model="etat_quartier" data-mini="true">
+                                    <option>actif</option>
+                                    <option>inactif</option>
+
+                                </select>
+                            </div>
+
+           
+            <input value="Enregistrer" data-icon="check" ng-click="save_quartier_ipes()" data-iconpos="right" data-mini="true" data-theme="e" type="button">											
+            <center><div> {{result_add_quartier_ipes}}</div> </center>
+        </div>	
+
+    </form>
+
+
+</div> 

@@ -1,11 +1,9 @@
- <div ng-controller="operation_etab">     
-<div ng-controller="operation_diplome">  <!--  charge le nom des ipes et sa selection charge lenom des etablissements-->
-    <div ng-controller="operation_filiere">   <!--  charge le nom des diplome en fonction des etablissement choisie-->
-        <div ng-controller="operation_specialite">   <!--  charge le nom des filiere en fonction des diplome choisie-->       
-                 <div ng-controller="operation_planing">   
+<div ng-controller="operation_etab">    
+    <div ng-controller="operation_diplome">  <!--  charge le nom des ipes et sa selection charge lenom des etablissements-->
+        <div ng-controller="operation_filiere">   <!--  charge le nom des diplome en fonction des etablissement choisie-->
+            <div ng-controller="operation_specialite">   <!--  charge le nom des filiere en fonction des diplome choisie-->       
+                  <div ng-controller="operation_planing">  
 
-                
-                    
                     <form>
                         <div style="padding:50px 10px;">
 
@@ -33,33 +31,50 @@
                             </select>
 
                             <label for="text-1">  Choisir specialite</label>
-                            <select  ng-options="data4 as data4.labelle_specialite for data4 in data_specialite_filiere" ng-model="specialite_filiere" x-ng-change="update8(specialite_filiere)" >
+                            <select  ng-options="data4 as data4.labelle_specialite for data4 in data_specialite_filiere" ng-model="specialite_filiere" x-ng-change="update9(specialite_filiere)" >
 
                             </select>
+                            
+                            <label for="text-1">  Choisir semestre</label>
+                            <select  ng-options="data5 as data5.labelle_semestre for data5 in data_semestre_specialite" ng-model="semestre_specialite" x-ng-change="update11(semestre_specialite)" >
 
+                            </select>
+                            
+                            <label for="text-1">  Libelle unité d'enseignement (UE) :</label>
+                            <input name="user" ng-model="label_ue" value="" placeholder="labelle UE" data-theme="a" type="text">
+                            
+                             <label for="text-1">  duree Cour Magistraux (CM):</label>
+                            <input name="user" ng-model="duree_cm" value="" placeholder="durée horaire CM" data-theme="a" type="text">
 
-                            <label for="text-1">Libelle planing :</label>
-                            <input name="user" ng-model="labelle_planing" value="" placeholder="labelle" data-theme="a" type="text">
+                             <label for="text-1">  duree Travaux Dirrigés (TD):</label>
+                            <input name="user" ng-model="duree_td" value="" placeholder="durée horaire TD" data-theme="a" type="text">
 
+                              <label for="text-1">  duree Travaux Pratiques (TP):</label>
+                            <input name="user" ng-model="duree_tp" value="" placeholder="durée horaire TP" data-theme="a" type="text">
 
-                            <label for="textarea-6">Condition d'accès:</label>
-                            <textarea cols="40" rows="1" ng-model="cond_acces" id="annonce" placeholder="Votre message"></textarea>
+                            
+ 
+                            <label for="text-1">  nombre de credits :</label>
+                            <input name="user" ng-model="nb_credit" value="" placeholder="Nombre de credit" data-theme="a" type="text">
 
-                            <label for="textarea-6">Objectif :</label>
-                            <textarea cols="40" rows="1" ng-model="objectif" id="annonce" placeholder="Votre message"></textarea>
+                              <label for="text-1"> UE Obligatoire :</label>
+                                   <div data-role="fieldcontain">										 
+                                <select  ng-model="obligatoire" data-mini="true">
+                                    <option>Oui</option>
+                                    <option>Non</option>
 
-                            <label for="textarea-6">Débouché :</label>
-                            <textarea cols="40" rows="1" ng-model="debouche" id="annonce" placeholder="Votre message"></textarea>
+                                </select>
+                            </div>
+                              
 
-                            <label for="text-1">  Durée etude :</label>
-                            <input name="user" ng-model="duree_etude" value="" placeholder="labelle" data-theme="a" type="text">
+                            <label for="text-1">  Choisir etat</label>
+                            <div data-role="fieldcontain">										 
+                                <select  ng-model="etat_ue" data-mini="true">
+                                    <option>actif</option>
+                                    <option>inactif</option>
 
-                            <label for="text-1">  Programme :</label>
-                            <input name="user" ng-model="programme" value="" placeholder="labelle" data-theme="a" type="text">
-
-                            <label for="text-1">  Frais d'étude :</label>
-                            <input name="user" ng-model="frais_etude" value="" placeholder="labelle" data-theme="a" type="text">
-
+                                </select>
+                            </div>
 
 
                             <input value="Enregistrer" data-icon="check" ng-click="save_planing()" data-iconpos="right" data-mini="true" data-theme="e" type="button">											
@@ -69,9 +84,8 @@
 
                     </form>
 
-
                 </div>
-            </div> 
+            </div>
         </div> 
-    </div> 	
+    </div>
 </div>

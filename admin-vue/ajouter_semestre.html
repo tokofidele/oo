@@ -1,9 +1,9 @@
-<div ng-controller="operation_etab">  
+<div ng-controller="operation_etab">    
     <div ng-controller="operation_diplome">  <!--  charge le nom des ipes et sa selection charge lenom des etablissements-->
         <div ng-controller="operation_filiere">   <!--  charge le nom des diplome en fonction des etablissement choisie-->
             <div ng-controller="operation_specialite">   <!--  charge le nom des filiere en fonction des diplome choisie-->       
+                <div ng-controller="operation_semestre">   <!--  charge le nom des specialite en fonction des filiere choisie--> 
 
-                <div ng-controller="operation_tutelle">   
 
                     <form>
                         <div style="padding:50px 10px;">
@@ -27,40 +27,33 @@
                             </select>
 
                             <label for="text-1">  Choisir filière</label>
-                            <select  ng-options="data3 as data3.labelle_filiere for data3 in data_filiere_diplome" ng-model="filiere_diplome" x-ng-change="update6(filiere_diplome)" >
+                            <select  ng-options="data3 as data3.labelle_filiere for data3 in data_filiere_diplome" ng-model="filiere_diplome" x-ng-change="update7(filiere_diplome)" >
+
+                            </select>
+
+                            <label for="text-1">  Choisir specialite</label>
+                            <select  ng-options="data4 as data4.labelle_specialite for data4 in data_specialite_filiere" ng-model="specialite_filiere" x-ng-change="update8(specialite_filiere)" >
 
                             </select>
 
 
-                            <label for="text-1">  nom tutelle académique :</label>
-                            <input name="user" ng-model="nom_tutelle" value="" placeholder="labelle" data-theme="a" type="text">
+                            <label for="text-1">  Libelle semestre :</label>
+                            <input name="user" ng-model="label_semestre" value="" placeholder="labelle" data-theme="a" type="text">
 
-                            <label for="text-1">  logo tutelle</label>
-                            <input name="nom" ng-model="logo_tutelle" value="" placeholder="sigle " data-theme="a" type="text">
-
-
-                            <label for="text-1">  site web tutelle</label>
-                            <input name="nom" ng-model="site_tutelle" value="" placeholder="sigle " data-theme="a" type="text">
-
-
-                            <label for="text-1">  mail tutelle</label>
-                            <input name="nom" ng-model="mail_tutelle" value="" placeholder="sigle " data-theme="a" type="email">
-
-
-                            <label for="text-1">  téléphone tutelle</label>
-                            <input name="nom" ng-model="tel_tutelle" value="" placeholder="sigle " data-theme="a" type="tel">
-
+                          
 
                             <label for="text-1">  Choisir etat</label>
                             <div data-role="fieldcontain">										 
-                                <select  ng-model="etat_tutelle" data-mini="true">
+                                <select  ng-model="etat_semestre" data-mini="true">
                                     <option>actif</option>
                                     <option>inactif</option>
 
                                 </select>
                             </div>
-                            <input value="Enregistrer" data-icon="check" ng-click="save_tutelle()" data-iconpos="right" data-mini="true" data-theme="e" type="button">											
-                            <center><div> {{result_add_tutelle}}</div> </center>
+
+
+                            <input value="Enregistrer" data-icon="check" ng-click="save_semestre()" data-iconpos="right" data-mini="true" data-theme="e" type="button">											
+                            <center><div> {{result_add_semestre}}</div> </center>
 
                         </div>	
 
@@ -69,5 +62,5 @@
                 </div>
             </div>
         </div> 
-    </div> 
+    </div>
 </div>

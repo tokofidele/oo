@@ -27,8 +27,8 @@ ipescam.controller('homeControler', ['$scope', function($scope)
             else
 
 
-            if (window.loggedIn == 'ajouter_tutelle')
-                return "admin-vue/ajouter_tutelle_Head.html";
+            if (window.loggedIn == 'ajouter_planing')
+                return "admin-vue/ajouter_planing_Head.html";
 
             else
 
@@ -47,6 +47,14 @@ ipescam.controller('homeControler', ['$scope', function($scope)
 
             if (window.loggedIn == 'ajouter_adresse_ipes')
                 return "admin-vue/ajouter_adresse_ipes_Head.html";
+
+     //ajouter quartier pour  un IPES
+            else
+
+            if (window.loggedIn == 'ajouter_quartier_ipes')
+                return "admin-vue/ajouter_quartier_Head.html";
+
+
 
 
             //ajouter etablissement
@@ -69,16 +77,24 @@ ipescam.controller('homeControler', ['$scope', function($scope)
             if (window.loggedIn == 'add_specialite')
                 return "admin-vue/ajouter_specialite_Head.html";
 
-            //ajouter planing
+            //ajouter piece dossier candidature
             else
-            if (window.loggedIn == 'add_planing')
-                return "admin-vue/ajouter_planing_Head.html";
+            if (window.loggedIn == 'add_piece')
+                return "admin-vue/ajouter_piece_Head.html";
 
 
-            //ajouter option
+            //ajouter semestre
+            else
+            if (window.loggedIn == 'add_semestre')
+                return "admin-vue/ajouter_semestre_head.html";
+
+ //ajouter option
             else
             if (window.loggedIn == 'add_option')
                 return "admin-vue/ajouter_option_head.html";
+
+
+
 
 //ajouter annonce
             if (window.loggedIn == 'ajouter_annonce')
@@ -162,7 +178,8 @@ ipescam.controller('homeControler', ['$scope', function($scope)
                         
                     window.loggedIn === 'etablissement' ||
                     window.loggedIn === 'adresse_ipes' ||
-                    window.loggedIn === 'agrement_ipes'  )
+                    window.loggedIn === 'agrement_ipes' ||
+                   window.loggedIn === 'accueil' )
                 return "client-vue/ipes/ipes_head.html";
 
 
@@ -182,7 +199,8 @@ ipescam.controller('homeControler', ['$scope', function($scope)
                         
                     window.loggedIn === 'etablissement_all' || //head etablissement dans la recherche d'etablissements
                     window.loggedIn === 'adresse_ipes_all' ||
-                    window.loggedIn === 'agrement_ipes_all')
+                    window.loggedIn === 'agrement_ipes_all' ||
+                    window.loggedIn === 'accueil_all')
                 return "client-vue/ipes/ipes_all_head.html";
 
 
@@ -206,8 +224,8 @@ ipescam.controller('homeControler', ['$scope', function($scope)
 
             // appelle template tutelle
             else
-            if (window.loggedIn === 'ajouter_tutelle')
-                return "admin-vue/ajouter_tutelle.html";
+            if (window.loggedIn === 'ajouter_planing')
+                return "admin-vue/ajouter_planing.html";
 
 
             //ajouter IPES
@@ -219,6 +237,15 @@ ipescam.controller('homeControler', ['$scope', function($scope)
             else
             if (window.loggedIn === 'ajouter_adresse_ipes')
                 return "admin-vue/ajouter_adresse_ipes.html";
+
+ //ajouter quartier pour un IPES
+            else
+            if (window.loggedIn === 'ajouter_quartier_ipes')
+                return "admin-vue/ajouter_quartier.html";
+
+
+
+
 
             //ajouter etablissement
             else
@@ -241,18 +268,27 @@ ipescam.controller('homeControler', ['$scope', function($scope)
             if (window.loggedIn === 'add_specialite')
                 return "admin-vue/ajouter_specialite.html";
 
-            //ajouter planing
+            //ajouter piece candidature
             else
-            if (window.loggedIn === 'add_planing')
-                return "admin-vue/ajouter_planing.html";
+            if (window.loggedIn === 'add_piece')
+                return "admin-vue/ajouter_piece.html";
+ //turn "admin-vue/ajouter_planing.html";
+
+            //ajouter semestre
+            else
+            if (window.loggedIn === 'add_semestre')
+                return "admin-vue/ajouter_semestre.html";
 
 
-            //ajouter option
+ //ajouter semestre
             else
             if (window.loggedIn === 'add_option')
                 return "admin-vue/ajouter_option.html";
 
-            //ajouter option
+
+
+
+            // finajouter annonce
             else
             if (window.loggedIn === 'ajouter_annonce')
                 return "admin-vue/ajouter_annonce.html";
@@ -344,6 +380,21 @@ ipescam.controller('homeControler', ['$scope', function($scope)
             if (window.loggedIn === 'etablissement' ||
                   window.loggedIn === 'etablissement_all')     //content etablissement dans la recherche des etablissement et par region
                 return "client-vue/ipes/etablissements.html";
+        
+            //appelle template presentation ipes : accueil
+            else
+                
+                if(window.loggedIn === 'accueil')
+            {
+                return "client-vue/ipes/ipes.html";
+            }
+            //appelle template presentation ipes_all : accueil
+            else
+                
+                if(window.loggedIn === 'accueil_all')
+            {
+                return "client-vue/ipes/ipes.html";
+            }
 
             else
             //appelle template content adresse d'un ipes

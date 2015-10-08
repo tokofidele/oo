@@ -6,8 +6,7 @@ ipescam.controller('head_Controler', ['$scope', function($scope)
  
         $scope.aller = function()
         {
-
-           // window.loggedIn = 'region';
+            // window.loggedIn = 'region';
         }
 
         //  appelle template action differees
