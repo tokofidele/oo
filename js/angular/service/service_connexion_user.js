@@ -20,45 +20,44 @@ ipescam.factory('service_connexion_user', function($http) {
 
         serverRequest: function(postData, $scope) {
 
+      
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_connexion_utilisateur.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_connexion_utilisateur.php",
                 data: postData
             }).success(function(data) {
+
+                $scope.showLoader = false;
 
                 if (data.admin == 2)
                 {
                     window.loggedIn = "admin_region";
-                    $("#popupLogin").popup("close");
-
+                $scope.loader.loading = false ;
                 }
                 else
                 if (data.client == '1')
                 {
-
-                    window.loggedIn = 'region';
-                    $("#popupLogin").popup("close");
-
+                   
+                window.loggedIn = 'region';
+                  $scope.loader.loading = false ;
+                  
                 }
                 else
                 {
 
                     $scope.resultat_connexion = data.error;
-
-
+                      $scope.loader.loading = false ;
                 }
+
 
 
             });
 
 
-       },
+        },
     };
 });
-
-
-
 
 
 

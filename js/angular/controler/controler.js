@@ -48,7 +48,7 @@ ipescam.controller('homeControler', ['$scope', function($scope)
             if (window.loggedIn == 'ajouter_adresse_ipes')
                 return "admin-vue/ajouter_adresse_ipes_Head.html";
 
-     //ajouter quartier pour  un IPES
+            //ajouter quartier pour  un IPES
             else
 
             if (window.loggedIn == 'ajouter_quartier_ipes')
@@ -88,7 +88,7 @@ ipescam.controller('homeControler', ['$scope', function($scope)
             if (window.loggedIn == 'add_semestre')
                 return "admin-vue/ajouter_semestre_head.html";
 
- //ajouter option
+            //ajouter option
             else
             if (window.loggedIn == 'add_option')
                 return "admin-vue/ajouter_option_head.html";
@@ -174,12 +174,11 @@ ipescam.controller('homeControler', ['$scope', function($scope)
                     window.loggedIn === 'ipes_Nord_Ouest' ||
                     window.loggedIn === 'ipes_Ouest' ||
                     window.loggedIn === 'ipes_Sud' ||
-                    window.loggedIn === 'ipes_Sud_Ouest'||
-                        
+                    window.loggedIn === 'ipes_Sud_Ouest' ||
                     window.loggedIn === 'etablissement' ||
                     window.loggedIn === 'adresse_ipes' ||
                     window.loggedIn === 'agrement_ipes' ||
-                   window.loggedIn === 'accueil' )
+                    window.loggedIn === 'accueil')
                 return "client-vue/ipes/ipes_head.html";
 
 
@@ -195,8 +194,7 @@ ipescam.controller('homeControler', ['$scope', function($scope)
                     window.loggedIn === 'ipes_Nord_all' ||
                     window.loggedIn === 'ipes_Extreme_Nord_all' ||
                     window.loggedIn === 'ipes_Est_all' ||
-                    window.loggedIn === 'ipes_Adamaoua_all'||
-                        
+                    window.loggedIn === 'ipes_Adamaoua_all' ||
                     window.loggedIn === 'etablissement_all' || //head etablissement dans la recherche d'etablissements
                     window.loggedIn === 'adresse_ipes_all' ||
                     window.loggedIn === 'agrement_ipes_all' ||
@@ -238,7 +236,7 @@ ipescam.controller('homeControler', ['$scope', function($scope)
             if (window.loggedIn === 'ajouter_adresse_ipes')
                 return "admin-vue/ajouter_adresse_ipes.html";
 
- //ajouter quartier pour un IPES
+            //ajouter quartier pour un IPES
             else
             if (window.loggedIn === 'ajouter_quartier_ipes')
                 return "admin-vue/ajouter_quartier.html";
@@ -272,7 +270,7 @@ ipescam.controller('homeControler', ['$scope', function($scope)
             else
             if (window.loggedIn === 'add_piece')
                 return "admin-vue/ajouter_piece.html";
- //turn "admin-vue/ajouter_planing.html";
+            //turn "admin-vue/ajouter_planing.html";
 
             //ajouter semestre
             else
@@ -280,7 +278,7 @@ ipescam.controller('homeControler', ['$scope', function($scope)
                 return "admin-vue/ajouter_semestre.html";
 
 
- //ajouter semestre
+            //ajouter semestre
             else
             if (window.loggedIn === 'add_option')
                 return "admin-vue/ajouter_option.html";
@@ -378,20 +376,20 @@ ipescam.controller('homeControler', ['$scope', function($scope)
 
             //appelle template content liste etablissement d'un ipes
             if (window.loggedIn === 'etablissement' ||
-                  window.loggedIn === 'etablissement_all')     //content etablissement dans la recherche des etablissement et par region
+                    window.loggedIn === 'etablissement_all')     //content etablissement dans la recherche des etablissement et par region
                 return "client-vue/ipes/etablissements.html";
-        
+
             //appelle template presentation ipes : accueil
             else
-                
-                if(window.loggedIn === 'accueil')
+
+            if (window.loggedIn === 'accueil')
             {
                 return "client-vue/ipes/ipes.html";
             }
             //appelle template presentation ipes_all : accueil
             else
-                
-                if(window.loggedIn === 'accueil_all')
+
+            if (window.loggedIn === 'accueil_all')
             {
                 return "client-vue/ipes/ipes.html";
             }
@@ -399,15 +397,13 @@ ipescam.controller('homeControler', ['$scope', function($scope)
             else
             //appelle template content adresse d'un ipes
             if (window.loggedIn === 'adresse_ipes' ||
-                  window.loggedIn === 'adresse_ipes_all')  //content etablissement dans la recherche des etablissement et par region
-                   
+                    window.loggedIn === 'adresse_ipes_all')  //content etablissement dans la recherche des etablissement et par region
                 return "client-vue/ipes/adresse.html";
-        
-         else
+
+            else
             //appelle template content adresse d'un ipes
             if (window.loggedIn === 'agrement_ipes' ||
-                  window.loggedIn === 'agrement_ipes_all')  //content etablissement dans la recherche des etablissement et par region
-                   
+                    window.loggedIn === 'agrement_ipes_all')  //content etablissement dans la recherche des etablissement et par region
                 return "client-vue/ipes/agrement.html";
 
 
@@ -424,6 +420,12 @@ ipescam.controller('homeControler', ['$scope', function($scope)
 
     {
         var postData = {};
+
+        $scope.loader = {
+            loading: false,
+        };
+
+
         //addCompte est la fonction qui permet d'ajouter un utilisateur
         $scope.addCompte = function()
         {
@@ -446,10 +448,15 @@ ipescam.controller('homeControler', ['$scope', function($scope)
                 {
                     var postData_con = {};
 
+
                     postData_con.tel = $scope.tel;
                     postData_con.pwd_user = $scope.pass;
+//                    httpInterceptor.request();
+
+                    $scope.loader.loading = true;
 
                     service_connexion_user.serverRequest(postData_con, $scope);
+//    
 
                     $scope.tel = '';
                     $scope.pass = '';

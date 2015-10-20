@@ -2,10 +2,15 @@
 ipescam.controller('get_Ipes_region', ['$scope', 'service_Liste_Ipes', function($scope, service_Liste_Ipes)
 
     {
+         $scope.loader = {
+            loading: false,
+        };
 
         $scope.nom_region = function(path)
         {
-            var promise = service_Liste_Ipes.serverRequest(path);
+            $scope.loader.loading = true;
+            var promise = service_Liste_Ipes.serverRequest(path, $scope);
+            
             promise.then(function()
             {
                 window.loggedIn = 'liste_ipes_region';
@@ -27,6 +32,12 @@ ipescam.controller('get_Ipes_region', ['$scope', 'service_Liste_Ipes', function(
             }]).controller('affiche_ipes_region', ['$scope', 'service_Liste_Ipes', 'service_gestion_ipes', function($scope, service_Liste_Ipes, service_gestion_ipes)
 
     {
+        
+         $scope.loader = {
+            loading: false,
+        };
+        
+        
         $scope.data_Ipes = service_Liste_Ipes.getData(); // affiche la liste des ipes par region choisie et gere le click sur l'ipes choisie
         $scope.name_region = service_Liste_Ipes.getData_region_name();  //recupere le nom de la  region cliquée
 
@@ -35,12 +46,12 @@ ipescam.controller('get_Ipes_region', ['$scope', 'service_Liste_Ipes', function(
         $scope.go_id_ipes = function(path)
         {
 
-
+            $scope.loader.loading = true;
             //recupere le nom et le champs presentation de lipes cliquee a base de lid
-            service_gestion_ipes.serverRequest5(path);
+            service_gestion_ipes.serverRequest5(path,$scope);
 
             //recupere le nom de la region de ipes clique a base de id
-            var promise = service_gestion_ipes.serverRequest6(path);
+            var promise = service_gestion_ipes.serverRequest6(path,$scope);
 
             promise.then(function()
             {

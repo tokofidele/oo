@@ -9,8 +9,10 @@
     <form>
         <input name="search-11" id="search-11"  type="search">
     </form>
+     <center><div class="spinner" ng-show="loader.loading"><img src='css/images/loader.gif'></div></center>
+
     <ul data-role="listview" data-inset="true" data-filter="true" data-input="#search-11">                            
-        <li data-role="list-divider" data-theme="b">Liste des IPES du centre</li>
+      
         
         <li ng-repeat="data in data_Ipes" li-jq-mobile ng-click="go_id_ipes(data.id_ipes)" ><a href=''>					
                 <img src='css/images/{{data.image}}.gif'>

@@ -7,6 +7,7 @@
 
 
             <ul data-role="listview" data-inset="true">
+                <center><div class="spinner" ng-show="loader.loading"><img src='css/images/loader.gif'></div></center>
                 <li data-role="list-divider"> Liste Régionnale des IPES  </li>
                 <li ng-repeat="data in data_name_region" li-jq-mobile ng-click="nom_region(data.nom_region)"><a href="#"  data-transition="slide" >{{data.nom_region}}</a><span class="ui-li-count">40</span></li>
 

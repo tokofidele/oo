@@ -5,6 +5,7 @@
 
     <ul data-role="listview" data-inset="true">
         <li data-role="list-divider"><font color="red"><center>Etablissements</center></font></li> 
+     <center><div class="spinner" ng-show="loader_etab.loading"><img src='css/images/loader_etab.gif'></div></center>
     </ul>
 
     <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
@@ -13,9 +14,12 @@
 
             <h3 ng-click="go_id_etab(data.id_etablissement)">{{data.labelle_etalissement}}</h3>
             <p>
-              <!--  <img src='css/images/{{data.logo_etablissement}}.gif' class="ui-li-icon"> -->
-             <center> 
+                <!--  <img src='css/images/{{data.logo_etablissement}}.gif' class="ui-li-icon"> -->
+            <center> 
                 <label for="textinput-f"><strong>{{data.labelle_etalissement}}</strong></label>
+               
+                
+                
             </center>
             <!-- champs presentation d'un etablissement-->
 
@@ -24,25 +28,28 @@
             <div class="ui-body ui-body-a ui-corner-all">
 
                 <p>{{data.presentation}} </p>
-                
+
             </div>    
-<!--
-                <b>site web :  </b>{{data.site_web}} 
-                <ul data-role="listview" data-inset="true">
-                    <li><a href="{{data.site_web}}" target="_blank">Visiter le site web</a></li>
-
-                </ul>
-
-
+            <!--
+                            <b>site web :  </b>{{data.site_web}} 
+                            <ul data-role="listview" data-inset="true">
+                                <li><a href="{{data.site_web}}" target="_blank">Visiter le site web</a></li>
             
-
-  -->
+                            </ul>
+            
+            
+                        
+            
+            -->
 
             <!-- fin champs presentation d'un etablissement-->
 
             <!-- Liste des diplomes -->
             <ul data-role="listview" data-inset="true">
                 <li data-role="list-divider"><font color="red"><center>Diplôme préparé</center></font></li>
+            
+                 <center><div class="spinner" ng-show="loader_diplome.loading"><img src='css/images/loader_diplome.gif'></div></center>
+
             </ul>
 
             <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
@@ -57,6 +64,9 @@
 
                     <ul data-role="listview" data-inset="true">
                         <li data-role="list-divider"><font color="red"><center>Dossier de candidature</center></font></li>
+                    
+                       <center><div class="spinner" ng-show="loader_diplome_dossier.loading"><img src='css/images/loader_dossier_candidature.gif'></div></center>
+                       
                     </ul>
 
                     <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
@@ -66,7 +76,7 @@
                             <p>
 
                             <div class="ui-body ui-body-a ui-corner-all" ng-repeat="data in data_dossier_candidature" jqm-collapsible-repeat>
-                                 {{data.doc_candidature}} 
+                                {{data.doc_candidature}} 
 
                             </div> 
 
@@ -81,6 +91,8 @@
 
                     <ul data-role="listview" data-inset="true">
                         <li data-role="list-divider"><font color="red"><center>Filières</center></font></li>
+                    
+                     <center><div class="spinner" ng-show="loader_filiere.loading"><img src='css/images/loader_filiere.gif'></div></center>
                     </ul>
 
                     <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
@@ -104,6 +116,8 @@
 
                             <ul data-role="listview" data-inset="true">
                                 <li data-role="list-divider"><font color="red"><center>Spécialités</center></font></li>
+                            
+                                 <center><div class="spinner" ng-show="loader_specialie.loading"><img src='css/images/loader_specialite.gif'></div></center>
                             </ul>
 
                             <div data-role="collapsibleset" data-theme="a" data-content-theme="a">
@@ -172,38 +186,38 @@
                                         <div data-role="collapsible">
 
                                             <h3  ng-click="go_id_specialite_grille(data.id_specialite)"><center>Grille des Enseignements</center></h3>
+                                            
+                                            <center><div class="spinner" ng-show="loader_specialie_grille.loading"><img src='css/images/loader_grille_enseignement.gif'></div></center>
                                             <p>
+ 
+                                            <div scroll>
+           <!-- la directive scrool permet de mettre les scrollbar dans la div et data-anchor pcq c un tableau -->
 
-                                            <div class="ui-body ui-body-a ui-corner-all">
+                                                <table data-role="table"  data-mode="reflow" class="ui-responsive table-stroke" data-anchor>
 
-
-                                                <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive">
                                                     <thead>
-                                                        <tr>
-                                                            <th data-priority="1">Semestre</th>
+                                                        <tr class="th-groups">
+                                                            <th data-priority="persist">Semestre</th>
                                                             <th data-priority="persist">Unite Enseignement</th>
-                                                            <th data-priority="2">Durée cours magistral</th>
-                                                            <th data-priority="3"><abbr title="Rotten Tomato Rating">Durée travaux dirrigés</abbr></th>
-                                                            <th data-priority="4">Durée travaux pratique</th>
-                                                            <th data-priority="4">Obligatoire</th>
-                                                            <th data-priority="4">Credits</th>
+                                                            <th data-priority="persist">Durée cours magistral</th>
+                                                            <th data-priority="persist"><abbr title="Rotten Tomato Rating">Durée travaux dirrigés</abbr></th>
+                                                            <th data-priority="persist">Durée travaux pratique</th>
+                                                            <th data-priority="persist">Obligatoire</th>
+                                                            <th data-priority="persist">Credits</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody  ng-repeat="data in data_UE">
                                                         <tr>
                                                             <th>{{data.labelle_semestre_ue}}</th>
                                                             <td>{{data.labelle_unite_e}}</td>
-                                                            <td>{{data.duree_cour_magistraux}}Heures</td>
+                                                            <td>{{data.duree_cour_magistraux}} Heures</td>
                                                             <td>{{data.duree_td}} Heures</td>
-                                                            <td>{{data.duree_tp}}Heures</td>
+                                                            <td>{{data.duree_tp}} Heures</td>
                                                             <td>{{data.obligatoire}}</td>
                                                             <td>{{data.nb_credit}}</td>
                                                         </tr>
-                                                     </tbody>
+                                                    </tbody>
                                                 </table>
-                                                
-                                                
-
 
 
                                             </div> 
@@ -217,6 +231,8 @@
 
                                     <ul data-role="listview" data-inset="true">
                                         <li data-role="list-divider"><font color="red"><center>Options</center></font></li>
+                                    
+ 
                                     </ul>
 
                                     <div data-role="collapsibleset" data-theme="a" data-content-theme="a">

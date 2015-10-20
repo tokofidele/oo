@@ -74,7 +74,7 @@ ipescam.factory('service_Liste_Ipes', function($q, $http) {
         
         
         //  liste les ipes par region   
-        serverRequest: function(post_data) {
+        serverRequest: function(post_data,$scope) {
             
             data_region_name.nam_region=post_data;
             
@@ -82,14 +82,15 @@ ipescam.factory('service_Liste_Ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_affiche_ipes.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_affiche_ipes.php",
                 data: {'region': post_data}
             }).success(function(data)
             {
-
+                
              
                 datas = data;
-           
+                $scope.loader.loading = false;
+                
                 deferred.resolve(datas);
                 
               
@@ -107,7 +108,7 @@ ipescam.factory('service_Liste_Ipes', function($q, $http) {
             var deferred = $q.defer();
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_affiche_ipes_all.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_affiche_ipes_all.php",
                 data: {'region': post_data}
 
             }).success(function(data)
@@ -130,7 +131,7 @@ ipescam.factory('service_Liste_Ipes', function($q, $http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_affiche_ipes_annonce.php",
+                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_affiche_ipes_annonce.php",
                 data: {'region': post_data}
             }).success(function(data)
             {

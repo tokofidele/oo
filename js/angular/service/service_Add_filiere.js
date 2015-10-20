@@ -21,7 +21,7 @@ ipescam.factory('service_Add_filiere', function($http) {
 			
 			 $http({
 				 method: 'POST', 
-				 url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_ajouter_filiere.php",
+				 url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_ajouter_filiere.php",
 	            data: data_filiere
 	            }).success (function(data) {
  	                $scope.result_add_filiere = data.result_add_filiere;       

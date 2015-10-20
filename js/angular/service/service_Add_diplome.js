@@ -16,7 +16,7 @@ ipescam.factory('service_Add_diplome', function($http) {
 			
 			 $http({
 				 method: 'POST', 
-				 url: "http://41.205.8.159/web/IpesServeur/client-controleur/cont_ajouter_diplome.php",
+				 url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_ajouter_diplome.php",
 	            data: data_diplome
 	            }).success (function(data) {
  	                $scope.result_add_diplome = data.result_add_diplome;       
