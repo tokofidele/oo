@@ -24,7 +24,7 @@ ipescam.factory('service_connexion_user', function($http) {
 
             $http({
                 method: 'POST',
-                url: "http://41.205.18.31:81/ipes/IpesServeur/client-controleur/cont_connexion_utilisateur.php",
+                url: "http://192.168.0.254/web/IpesServeur/client-controleur/cont_connexion_utilisateur.php",
                 data: postData
             }).success(function(data) {
 
